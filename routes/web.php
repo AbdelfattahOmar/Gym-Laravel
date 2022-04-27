@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
-});
+})->name('home')->middleware('auth');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/city', function () {
+    return view('city.city');
+})->name('city')->middleware('auth');
 
-// Route::get('/city', function () {
-//     return view('city.city');
-// })->name('city');
-
+Auth::routes();
+Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
