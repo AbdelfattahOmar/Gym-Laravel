@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class City extends Model
 {
     use HasFactory, SoftDeletes;
-    #=======================================================================================#
-    #			                    To allow insert in table                              	#
-    #=======================================================================================#
+  
     protected $fillable = [
         'name',
         'manager_id',

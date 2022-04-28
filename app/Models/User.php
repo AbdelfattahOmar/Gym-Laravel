@@ -14,7 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 
 
-class User extends Authenticatable implements  MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, SoftDeletes, HasRoles;
 
@@ -24,9 +24,7 @@ class User extends Authenticatable implements  MustVerifyEmail
      *
      * @var array<int, string>
      */
-    #=======================================================================================#
-    #			                    To allow insert in table                              	#
-    #=======================================================================================#
+
     protected $fillable = [
         'name',
         'email',
@@ -85,5 +83,4 @@ class User extends Authenticatable implements  MustVerifyEmail
             return 'avatar.png';
         }
     }
-
 }
