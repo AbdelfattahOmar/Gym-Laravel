@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,9 @@ Route::get('/home', function () {
 Route::get('/city', function () {
     return view('city.city');
 })->name('city')->middleware('auth');
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
+
 
 Auth::routes();
 Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
