@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -19,9 +20,7 @@ Route::get('/home', function () {
     return view('welcome');
 })->name('home')->middleware('auth');
 
-Route::get('/city', function () {
-    return view('city.city');
-})->name('city')->middleware('auth');
+Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
 
