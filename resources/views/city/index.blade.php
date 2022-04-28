@@ -39,9 +39,9 @@
                     <thead>
                         <tr>
                             <th class="project-state"> ID </th>
-                            <th class="project-state"> Name</th>
-                            <th class="project-state"> Email</th>
-                            <th class="project-state"> Action</th>
+                            <th class="project-state"> City Name</th>
+                            <th class="project-state"> City Manager</th>
+                            <th class="project-state"> Action </th>
                             <th class="project-state"></th>
                         </tr>
                     </thead>
@@ -65,7 +65,7 @@ $(function() {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.index') }}",
+        ajax: "{{ route('city.index') }}",
         columns: [{
                 data: 'id',
                 name: 'id'
@@ -75,8 +75,12 @@ $(function() {
                 name: 'name'
             },
             {
-                data: 'email',
-                name: 'email'
+                data: 'Manager Name',
+                name: 'Manager Name'
+            },
+            {
+                data: 'created_at',
+                name: 'created_at'
             },
             {
                 data: 'action',

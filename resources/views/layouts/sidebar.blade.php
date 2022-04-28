@@ -60,7 +60,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="#" class="nav-link">
+                             <a href="{{ route('city.index') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>All Cities.</p>
                              </a>
@@ -71,12 +71,7 @@
                                  <p>Add a new city.</p>
                              </a>
                          </li>
-                         <li class="nav-item">
-                             <a href="pages/layout/boxed.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Deleted cities record.</p>
-                             </a>
-                         </li>
+
                      </ul>
                  </li>
                  <!-- End of Cities -->
@@ -195,7 +190,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{ route('users.index') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List Users.</p>
                              </a>
