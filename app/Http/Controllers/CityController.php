@@ -20,6 +20,7 @@ class CityController extends Controller
         if ($request->ajax()) {
             $data = City::select('*');
             return Datatables::of($data)
+<<<<<<< HEAD
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
      
@@ -35,11 +36,29 @@ class CityController extends Controller
                     })
                     ->rawColumns(['action', 'Manager Name'])
                     ->make(true);
+=======
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="/home" class="edit btn btn-primary btn-sm mx-2">View</a>';
+                    $btn .= '<a href="/home" class="edit btn btn-info btn-sm mx-2">Edit</a>';
+                    $btn .= '<a href="/home" class="edit btn btn-danger btn-sm mx-2">Delete</a>';
+                    return $btn;
+                })
+                ->addColumn('Manager Name', function ($row) {
+                    return User::find($row->manager_id)->name ?? 'No Manager Assigned';
+                })
+                ->addColumn('Created At', function ($row) {
+                    return City::find($row->id)->created_at->format('d - M - Y');
+                })
+
+                ->rawColumns(['action', 'Manager Name', 'Created At'])
+                ->make(true);
+>>>>>>> 8f117305cbe815d5c8f59c52d23faaf0818a5ada
         }
-        
         return view('city.index');
     }
 
+<<<<<<< HEAD
     public function show($cityID)
     {
         $totalRevenue = 0;
@@ -149,4 +168,6 @@ class CityController extends Controller
             ->whereNull('cities.manager_id')
             ->get();
     }
+=======
+>>>>>>> 8f117305cbe815d5c8f59c52d23faaf0818a5ada
 }
