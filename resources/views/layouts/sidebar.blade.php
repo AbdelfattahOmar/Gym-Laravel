@@ -1,5 +1,5 @@
- <!-- Main Sidebar Container -->
- @role('admin|cityManager|gymManager')
+<!-- Main Sidebar Container -->
+
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
@@ -82,8 +82,7 @@
                          <p>
                              City managers.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
@@ -160,8 +159,7 @@
                          <p>
                              Coaches.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
@@ -243,8 +241,7 @@
                          <p>
                              Training sessions.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
@@ -299,4 +296,3 @@
      </div>
      <!-- /.sidebar -->
  </aside>
- @endrole
