@@ -4,6 +4,7 @@ use App\Http\Controllers\CityController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TrainingSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::put('/city/{cityID}', [CityController::class, 'update'])->name('city.upda
 Route::delete('/city/{cityID}', [CityController::class, 'destroy'])->name('city.destroy')->middleware('auth');
 Route::get('/restoredCities', [CityController::class, 'showDeleted'])->name('city.showDeleted')->middleware('auth')->middleware('role:admin');
 Route::get('/restoredCities/{postID}', [CityController::class, 'restore'])->name('city.restored')->middleware('auth')->middleware('role:admin');
+
+
+Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth');
 
 Auth::routes();
 Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
