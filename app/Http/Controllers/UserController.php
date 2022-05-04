@@ -24,13 +24,12 @@ class UserController extends Controller
         if ($request->ajax()) {
             $data = User::select('*');
             return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
+            ->addIndexColumn()
+            ->addColumn('action', function($row){     
      
-     
-                        $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-                        $btn .= '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">Edit</a>';
-                        $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
+                        $btn = '<a href="/user/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
+                        $btn .= '<a href="/user/'.$row->id.'/edit-profile" class="edit btn btn-info btn-sm">Edit</a>';
+                        $btn .= '<a href="/user/'.$row->id.'" class="edit btn btn-danger btn-sm">Delete</a>';
      
                             return $btn;
                     })
