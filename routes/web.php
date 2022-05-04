@@ -20,9 +20,8 @@ Route::get('/home', function () {
     return view('welcome');
 })->name('home')->middleware('auth');
 
-Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth');
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
+Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth');
 
 
 Auth::routes();
