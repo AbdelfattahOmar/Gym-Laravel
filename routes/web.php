@@ -30,7 +30,7 @@ Route::put('/user/{users}', [UserController::class, 'update'])->name('user.updat
 Route::get('/user', [UserController::class, 'index'])->name('layouts.user-layout')->middleware('auth');
 
 // city routes
-Route::get('/city', [CityController::class, 'index'])->name('city.list')->middleware('auth');
+Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth');
 Route::get('/city/create', [CityController::class, 'create'])->name('city.create')->middleware('auth');
 Route::post('/city', [CityController::class, 'store'])->name('city.store')->middleware('auth');
 Route::get('/city/{cityID}', [CityController::class, 'show'])->name('city.show')->middleware('auth');
