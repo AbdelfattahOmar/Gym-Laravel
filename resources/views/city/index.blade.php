@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-
-=======
->>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -43,15 +39,9 @@
                         <tr>
                             <th class="project-state"> ID </th>
                             <th class="project-state"> City Name</th>
-<<<<<<< HEAD
-                            <th class="project-state"> City Manager</th>
-                            <th class="project-state"> Action </th>
-                            <th class="project-state"></th>
-=======
                             <th class="project-state"> City Manager Name</th>
                             <th class="project-state"> Created At</th>
                             <th class="project-state"> Action</th>
->>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
                         </tr>
                     </thead>
                     <tbody>
@@ -71,7 +61,7 @@
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('city.list') }}",
+            ajax: "{{ route('city.index') }}",
             columns: [{
                     data: 'id',
                     name: 'id'
