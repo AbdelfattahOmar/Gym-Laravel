@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainingSessionController;
 use App\Http\Controllers\GymController;
+use App\Http\Controllers\GymManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,7 @@ Route::get('/gym/training', function () {
 
 
 // gym manager routes
+Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('gymManager.index')->middleware('auth');
 
 
 Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
