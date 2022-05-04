@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -40,9 +39,9 @@
                         <tr>
                             <th class="project-state"> ID </th>
                             <th class="project-state"> City Name</th>
-                            <th class="project-state"> City Manager</th>
-                            <th class="project-state"> Action </th>
-                            <th class="project-state"></th>
+                            <th class="project-state"> City Manager Name</th>
+                            <th class="project-state"> Created At</th>
+                            <th class="project-state"> Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,43 +53,38 @@
         <!-- /.card -->
     </section>
 </div>
-
-
 @endsection
-
 @section('scripts')
 <script type="text/javascript">
-$(function() {
+    $(function() {
 
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('city.index') }}",
-        columns: [{
-                data: 'id',
-                name: 'id'
-            },
-            {
-                data: 'name',
-                name: 'name'
-            },
-            {
-                data: 'Manager Name',
-                name: 'Manager Name'
-            },
-            {
-                data: 'created_at',
-                name: 'created_at'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
-        ]
+        var table = $('.data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('city.index') }}",
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'Manager Name',
+                    name: 'Manager Name'
+                },
+                {
+                    data: 'Created At',
+                    name: 'Created At'
+                },
+                {
+                    data: 'action',
+                    name: 'action'
+                },
+            ]
+        });
+
     });
-
-});
 </script>
 @endsection
