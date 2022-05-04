@@ -1,5 +1,5 @@
- <!-- Main Sidebar Container -->
- @role('admin|cityManager|gymManager')
+<!-- Main Sidebar Container -->
+@role('admin|cityManager|gymManager')
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
@@ -82,8 +82,7 @@
                          <p>
                              City managers.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
@@ -160,8 +159,7 @@
                          <p>
                              Coaches.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
@@ -243,22 +241,23 @@
                          <p>
                              Training sessions.
                              <i class="fas fa-angle-left right"></i>
-
-                         </p>
+                             </p>
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{ route('trainingSession.listSessions') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List sessions.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{ route('trainingSession.training_session') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add a new session.</p>
                              </a>
                          </li>
+
+                         
                      </ul>
                  </li>
                  <!-- end of training sessions -->

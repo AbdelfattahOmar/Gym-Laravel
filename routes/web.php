@@ -4,6 +4,7 @@ use App\Http\Controllers\CityController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TrainingSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,16 @@ Route::delete('/city/{cityID}', [CityController::class, 'destroy'])->name('city.
 Route::get('/restoredCities', [CityController::class, 'showDeleted'])->name('city.showDeleted')->middleware('auth')->middleware('role:admin');
 Route::get('/restoredCities/{postID}', [CityController::class, 'restore'])->name('city.restored')->middleware('auth')->middleware('role:admin');
 
+<<<<<<< HEAD
 // city manager routes
+=======
+// gym manager routes
+
+
+Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::get('/TrainingSessions/create_session', [TrainingSessionController::class, 'create'])->name('trainingSession.training_session')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::post('/TrainingSessions/sessions', [TrainingSessionController::class, 'store'])->name('trainingSession.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+>>>>>>> 96bcbe24f45de59f599a4458cac34260898fe2c6
 
 
 
