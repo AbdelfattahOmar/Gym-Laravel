@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\GymRequest;
-use App\Http\Requests\UpdateGymRequest;
+
 use App\Models\Gym;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
 
 class GymController extends Controller
 {
 
-   #List Function                                   	
+    #List Function                                   	
 
     public function list()
     {
@@ -23,9 +24,9 @@ class GymController extends Controller
         }
         return view("gym.list", ['gyms' => $gymsFromDB]);
     }
-  
-     #Show Function                                 	
-    
+
+    #Show Function                                 	
+
 
     public function show($id)
     {
@@ -34,7 +35,7 @@ class GymController extends Controller
     }
 
     #Create Function                             
-  
+
     public function create()
     {
 
@@ -45,7 +46,7 @@ class GymController extends Controller
             'cities' => $cities,
         ]);
     }
- 
+
     #Store Function                                 	
 
     public function store(Request $request)
@@ -76,9 +77,9 @@ class GymController extends Controller
     }
 
 
-   
+
     #Edit Function
-  
+
     public function edit($id)
 
     {
