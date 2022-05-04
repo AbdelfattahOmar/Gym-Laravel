@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             CitySeeder::class,
             GymSeeder::class,
+            GymManagerSeeder::class,
+            CitiesManagerSeeder::class,
+            PermissionsSeeder::class,
+            TrainingSessionSeeder::class,
+            TrainingSessionUserSeeder::class,
+            TrainingPackagesSeeder::class,
+            UsersSeeder::class,
+
         ]);
     }
 }
