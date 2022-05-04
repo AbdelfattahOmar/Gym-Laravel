@@ -3,25 +3,14 @@
 namespace App\Http\Controllers;
 use App\Models\TrainingSession;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
->>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
 
 class TrainingSessionController extends Controller
 {
     public function index()
     {
         $trainingSessions = TrainingSession::all();
-<<<<<<< HEAD
-        // if (count($trainingSessions) <= 0) {
-        //     return view('empty');
-        // }
-        return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);
-    }
-
-=======
         if (count($trainingSessions) <= 0) {
             return view('empty');
         }
@@ -85,5 +74,4 @@ public function create()
         return redirect()->route('trainingSession.listSessions');
     }
 
->>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
 }

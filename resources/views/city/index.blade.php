@@ -63,46 +63,6 @@
         <!-- /.card -->
     </section>
 </div>
-<<<<<<< HEAD
-
-
-@endsection
-
-@section('scripts')
-<script type="text/javascript">
-$(function() {
-
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('city.index') }}",
-        columns: [{
-                data: 'id',
-                name: 'id'
-            },
-            {
-                data: 'name',
-                name: 'name'
-            },
-            {
-                data: 'Manager Name',
-                name: 'Manager Name'
-            },
-            {
-                data: 'created_at',
-                name: 'created_at'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
-        ]
-    });
-
-});
-=======
 @endsection
 @section('scripts')
 <script type="text/javascript">
@@ -136,6 +96,5 @@ $(function() {
         });
 
     });
->>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
 </script>
 @endsection
