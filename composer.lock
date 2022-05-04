@@ -989,6 +989,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v9.11.0",
             "source": {
                 "type": "git",
@@ -999,6 +1000,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/598a8c84d452a66b90a3213b1d67189cc726c728",
                 "reference": "598a8c84d452a66b90a3213b1d67189cc726c728",
+=======
+            "version": "v9.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "93414b1c7c0a56081d96c060bb850ac192d3d323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/93414b1c7c0a56081d96c060bb850ac192d3d323",
+                "reference": "93414b1c7c0a56081d96c060bb850ac192d3d323",
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
                 "shasum": ""
             },
             "require": {
@@ -1164,7 +1177,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2022-05-03T14:47:20+00:00"
+=======
+            "time": "2022-04-28T13:18:25+00:00"
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
         },
         {
             "name": "laravel/sanctum",
@@ -1681,6 +1698,7 @@
         },
         {
             "name": "league/flysystem",
+<<<<<<< HEAD
             "version": "3.0.19",
             "source": {
                 "type": "git",
@@ -1691,6 +1709,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/670df21225d68d165a8df38587ac3f41caf608f8",
                 "reference": "670df21225d68d165a8df38587ac3f41caf608f8",
+=======
+            "version": "3.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "c8e137e594948240b03372e012344b07c61b9193"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c8e137e594948240b03372e012344b07c61b9193",
+                "reference": "c8e137e594948240b03372e012344b07c61b9193",
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
                 "shasum": ""
             },
             "require": {
@@ -1751,7 +1781,11 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem/tree/3.0.19"
+=======
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.18"
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
             },
             "funding": [
                 {
@@ -1767,7 +1801,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-05-03T21:19:02+00:00"
+=======
+            "time": "2022-04-25T18:55:04+00:00"
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
         },
         {
             "name": "league/fractal",
@@ -6618,6 +6656,7 @@
         },
         {
             "name": "laravel/sail",
+<<<<<<< HEAD
             "version": "v1.14.1",
             "source": {
                 "type": "git",
@@ -6628,6 +6667,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/9a7348dedfccc894718a21f71c09d669747e3f33",
                 "reference": "9a7348dedfccc894718a21f71c09d669747e3f33",
+=======
+            "version": "v1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "453c66fde4109eb49e12299ffe3bf0d667983447"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/453c66fde4109eb49e12299ffe3bf0d667983447",
+                "reference": "453c66fde4109eb49e12299ffe3bf0d667983447",
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
                 "shasum": ""
             },
             "require": {
@@ -6674,7 +6725,11 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+<<<<<<< HEAD
             "time": "2022-05-02T13:58:40+00:00"
+=======
+            "time": "2022-04-27T13:10:22+00:00"
+>>>>>>> ac2e7a6d4b05d3bb56d6a63336f4212729d70e2e
         },
         {
             "name": "mockery/mockery",

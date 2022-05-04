@@ -131,7 +131,7 @@ body {
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="font-size: 14px;width: 200px;">
             <!-- Brand Logo -->
-            <a href="{{ route('welcome') }}" class="brand-link px-2">
+            <a href="#" class="brand-link px-2">
                 <span class="brand-text font-weight-light px-4">Gym System</span>
             </a>
             <!-- Sidebar -->.
@@ -174,7 +174,7 @@ body {
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('city.list') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> All Cities </p>
                                 </a>
@@ -202,13 +202,13 @@ body {
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('cityManager.list') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> All City Managers </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('cityManager.create') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> Add New </p>
                                 </a>
@@ -314,25 +314,25 @@ body {
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('trainingPackeges.listPackeges') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> List Packages </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('trainingPackeges.creatPackege') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> Add New </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('PaymentPackage.stripe') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> Buy Package </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('PaymentPackage.purchase_history') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> Purchases </p>
                                 </a>
@@ -349,13 +349,13 @@ body {
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('TrainingSessions.listSessions') }}" class="nav-link">
+                                <a href="{{ route('trainingSession.listSessions') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> All Sessions </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('TrainingSessions.training_session') }}" class="nav-link">
+                                <a href="{{ route('trainingSession.training_session') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p> Add New </p>
                                 </a>
@@ -373,7 +373,7 @@ body {
                     </li>
                     {{-- # ======================================= # Banned Users # ======================================= # --}}
                     <li class="nav-item">
-                        <a href="{{ route('user.listBanned') }}" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-user-lock"></i>
                             <p> Banned Users </p>
                         </a>
