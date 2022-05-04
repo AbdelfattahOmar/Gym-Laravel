@@ -129,18 +129,25 @@ body {
     <!-- Main Sidebar Container -->
     @role('admin|cityManager|gymManager')
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="font-size: 14px;width: 200px;">
-        <!-- Brand Logo -->
-        <a href="#" class="brand-link px-2">
-            <span class="brand-text font-weight-light px-4">Gym System</span>
-        </a>
-        <!-- Sidebar -->.
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{asset(auth()->user()->profileImageFile)}}" class="img-circle elevation-2"
-                        alt="User Image">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="font-size: 14px;width: 200px;">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link px-2">
+                <span class="brand-text font-weight-light px-4">Gym System</span>
+            </a>
+            <!-- Sidebar -->.
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="{{asset(auth()->user()->profileImageFile)}}" class="img-circle elevation-2"
+                            alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="{{ route('user.admin_profile', auth()->user()->id) }}" class="d-block">
+                            {{ auth()->user()->name }}
+                        </a>
+                    </div>
+
                 </div>
                 <div class="info">
                     <a href="{{ route('user.admin_profile', auth()->user()->id) }}" class="d-block">
@@ -149,237 +156,237 @@ body {
                 </div>
 
             </div>
-        </div>
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                @role('admin|cityManager|gymManager')
-                {{-- # ======================================= # Revenue # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="/" class="nav-link">
-                        <i class="nav-icon fas fa-dollar-sign"></i>
-                        <p>Revenue</p>
-                    </a>
-                </li>
-                @endrole
-                {{-- # ======================================= # Cities # ======================================= # --}}
-                @role('admin')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-city"></i>
-                        <p> Cities
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All Cities </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Restore Deleted </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # City Managers # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user-tie"></i>
-                        <p> City Managers <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All City Managers </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                @endrole
-                {{-- # ======================================= # Gyms # ======================================= # --}}
-                @role('admin|cityManager')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-dumbbell"></i>
-                        <p> Gyms
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/gym/list" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> List Gyms </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/gym/create" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # Gym Managers # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p> Gym Managers
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="gymManager/list" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All Gym Managers </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gymManager/create" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add new </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                @endrole
-                {{-- # ======================================= # Coaches # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user-ninja"></i>
-                        <p> Coaches
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="coach/list" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All Coaches </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="coach/create" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # Users # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p> Users
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/allUsers/list" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All Users </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # Training Packages # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="/" class="nav-link">
-                        <i class="nav-icon fas fa-cubes"></i>
-                        <p> Training Packages
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> List Packages </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Buy Package </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Purchases </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # Training Session # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-cube"></i>
-                        <p> Training Session
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('trainingSession.listSessions') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> All Sessions </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('trainingSession.training_session') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Add New </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                {{-- # ======================================= # Attendance # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="/listHistory" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p> Attendance </p>
-                        </p>
-                    </a>
-                    </a>
-                </li>
-                {{-- # ======================================= # Banned Users # ======================================= # --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-user-lock"></i>
-                        <p> Banned Users </p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    @role('admin|cityManager|gymManager')
+                    {{-- # ======================================= # Revenue # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <i class="nav-icon fas fa-dollar-sign"></i>
+                            <p>Revenue</p>
+                        </a>
+                    </li>
+                    @endrole
+                    {{-- # ======================================= # Cities # ======================================= # --}}
+                    @role('admin')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-city"></i>
+                            <p> Cities
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All Cities </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('city.create') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('city.showDeleted') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Restore Deleted </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # City Managers # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-tie"></i>
+                            <p> City Managers <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All City Managers </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endrole
+                    {{-- # ======================================= # Gyms # ======================================= # --}}
+                    @role('admin|cityManager')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-dumbbell"></i>
+                            <p> Gyms
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/gym/list" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> List Gyms </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/gym/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # Gym Managers # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p> Gym Managers
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="gymManager/list" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All Gym Managers </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="gymManager/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add new </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endrole
+                    {{-- # ======================================= # Coaches # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-ninja"></i>
+                            <p> Coaches
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="coach/list" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All Coaches </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="coach/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # Users # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p> Users
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/allUsers/list" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All Users </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # Training Packages # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <i class="nav-icon fas fa-cubes"></i>
+                            <p> Training Packages
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> List Packages </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Buy Package </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Purchases </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # Training Session # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="pages/kanban.html" class="nav-link">
+                            <i class="nav-icon fas fa-cube"></i>
+                            <p> Training Session
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('trainingSession.listSessions') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> All Sessions </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('trainingSession.training_session') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Add New </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- # ======================================= # Attendance # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="/listHistory" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p> Attendance </p>
+                            </p>
+                        </a>
+                        </a>
+                    </li>
+                    {{-- # ======================================= # Banned Users # ======================================= # --}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-user-lock"></i>
+                            <p> Banned Users </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
     </aside>

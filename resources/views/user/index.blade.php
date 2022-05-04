@@ -65,7 +65,7 @@ $(function() {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.list') }}",
+        ajax: "{{ route('users.index') }}",
         columns: [{
                 data: 'id',
                 name: 'id'

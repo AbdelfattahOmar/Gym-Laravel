@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainingSessionController;
 use App\Http\Controllers\GymController;
-use App\Http\Controllers\GymManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +23,7 @@ Route::get('/home', function () {
 })->name('home')->middleware('auth');
 
 // user routes
-Route::get('/users', [UserController::class, 'index'])->name('users.list')->middleware('auth');
+Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
 Route::get('/user/{id}', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('auth');
 Route::get('/user/{users}/edit-profile', [UserController::class, 'edit_profile'])->middleware('auth');
 Route::put('/user/{users}', [UserController::class, 'update'])->name('user.update')->middleware('auth');
@@ -71,7 +70,6 @@ Route::controller(CityManagerController::class)->group(function () {
 });
 
 // gym manager routes
-Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('gymManager.index')->middleware('auth');
 
 
 Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
