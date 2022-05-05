@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainingSessionController;
 use App\Http\Controllers\GymController;
-
+use App\Http\Controllers\CoachController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,11 +72,12 @@ Route::controller(CityManagerController::class)->group(function () {
 // gym manager routes
 
 
-Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth');
 Route::get('/TrainingSessions/create_session', [TrainingSessionController::class, 'create'])->name('trainingSession.training_session')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 Route::post('/TrainingSessions/sessions', [TrainingSessionController::class, 'store'])->name('trainingSession.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
-
+///  coach routes
+Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.index')->middleware('auth');
 
 Auth::routes();
 Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
