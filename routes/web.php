@@ -18,6 +18,9 @@ use App\Http\Controllers\GymManagerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+})->name('home')->middleware('auth');
 
 Route::get('/home', function () {
     return view('welcome');
@@ -75,6 +78,8 @@ Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('g
 Route::get('/gymManager/create', [GymManagerController::class, 'create'])->name('gymManager.create')->middleware('auth');
 Route::post('/gymManager/store', [GymManagerController::class, 'store'])->name('gymManager.store')->middleware('auth');
 Route::get('/gymManager/show/{id}', [GymManagerController::class, 'show'])->name('gymManager.show')->middleware('auth');
+Route::get('/gymManager/{id}/edit', [GymManagerController::class, 'edit'])->name('gymManager.edit')->middleware('auth');
+Route::put('/gymManager/{id}', [GymManagerController::class, 'update'])->name('gymManager.update');
 
 
 Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth');
