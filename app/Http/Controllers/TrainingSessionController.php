@@ -93,4 +93,20 @@ public function show($id)
      return view('trainingSession.show_training_session', ['trainingSession' => $trainingSession]);
 }
 
+
+
+public function deleteSession($id)
+    {
+
+
+            $trainingSession = TrainingSession::find($id);
+            // dd( $trainingSession);
+            $trainingSession->delete();
+            return to_route('trainingSession.listSessions');
+            
+       
+    }
 }
+
+
+

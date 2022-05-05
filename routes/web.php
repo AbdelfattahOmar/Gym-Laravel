@@ -76,6 +76,8 @@ Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'
 Route::get('/TrainingSessions/create_session', [TrainingSessionController::class, 'create'])->name('trainingSession.training_session')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 Route::post('/TrainingSessions/sessions', [TrainingSessionController::class, 'store'])->name('trainingSession.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 Route::get('/TrainingSessions/sessions/{session}', [TrainingSessionController::class, 'show'])->name('trainingSession.show_training_session')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::delete('/TrainingSessions/{session}', [TrainingSessionController::class, 'deleteSession'])->name('trainingSession.deleteSession')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+
 
 
 ///  coach routes
