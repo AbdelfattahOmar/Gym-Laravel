@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
+use DataTables;
+
 class TrainingSessionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $trainingSessions = TrainingSession::all();
        
         return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);
+
+
+       
     }
 
 
@@ -71,5 +76,21 @@ public function create()
 
         return redirect()->route('trainingSession.listSessions');
     }
+
+
+
+
+
+public function show($id)
+{
+    $userId = DB::select("select user_id from training_session_user where training_session_id = $id");
+
+    $user = User::find($id);
+
+
+    $trainingSession = TrainingSession::findorfail($id);
+    //dd($trainingSession);
+     return view('trainingSession.show_training_session', ['trainingSession' => $trainingSession]);
+}
 
 }

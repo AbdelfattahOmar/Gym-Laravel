@@ -57,7 +57,7 @@
 
                                     <td class="project-actions text-center">
                                         <a class="btn btn-info btn-sm"
-                                            href="#">
+                                            href="{{ route('trainingSession.show_training_session', $trainingSession['id']) }}">
 
                                             <i class="fa fa-eye"></i>
                                         </a>
@@ -92,7 +92,7 @@
                 $.ajax({
 
 
-                    url: '/TrainingSessions/' + id,
+                    url: '/trainingSession/' + id,
                     type: 'DELETE',
                     data: {
 
@@ -117,5 +117,8 @@
             }
         }
     </script>
+
   
 @endsection
+
+
