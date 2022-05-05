@@ -80,6 +80,7 @@ Route::post('/gymManager/store', [GymManagerController::class, 'store'])->name('
 Route::get('/gymManager/show/{id}', [GymManagerController::class, 'show'])->name('gymManager.show')->middleware('auth');
 Route::get('/gymManager/{id}/edit', [GymManagerController::class, 'edit'])->name('gymManager.edit')->middleware('auth');
 Route::put('/gymManager/{id}', [GymManagerController::class, 'update'])->name('gymManager.update');
+Route::delete('/gymManager/{id}', [GymManagerController::class, 'delete'])->name('gymManager.delete')->middleware('auth');
 
 
 Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth');

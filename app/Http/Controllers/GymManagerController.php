@@ -24,7 +24,7 @@ class GymManagerController extends Controller
             'password' => 'required |min:6',
             'email' => 'required|string|unique:users,email,',
             'national_id' => 'digits_between:10,17|required|numeric|unique:users',
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
 
@@ -73,7 +73,7 @@ class GymManagerController extends Controller
             'password' => 'required |min:6',
             'email' => 'required|string|unique:users,email,' . $user->id,
             'national_id' => 'digits_between:10,17|numeric|unique:users,national_id,' . $user->id,
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
         $user->name = $request->name;
@@ -92,6 +92,14 @@ class GymManagerController extends Controller
         $user->save();
         
         return to_route('gymManager.index');
+    }
+
+    public function delete($id)
+    {
+
+        $user = User::find($id);
+        $user->delete();
+        return to_route('gymManager.index'); 
     }
 }
 
