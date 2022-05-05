@@ -1,5 +1,4 @@
 <!-- Main Sidebar Container -->
-@role('admin|cityManager|gymManager')
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
@@ -188,7 +187,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="{{ route('users.list') }}" class="nav-link">
+                             <a href="{{ route('users.index') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List Users.</p>
                              </a>
@@ -298,4 +297,4 @@
      </div>
      <!-- /.sidebar -->
  </aside>
- @endrole
+
