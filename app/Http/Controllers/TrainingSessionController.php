@@ -106,7 +106,65 @@ public function deleteSession($id)
             
        
     }
+
+
+
+
+
+public function edit($id)
+    {
+        $trainingSessions = TrainingSession::all();
+
+        $trainingSession = TrainingSession::find($id);
+
+        return view('TrainingSessions.edit_training_session', ['trainingSession' => $trainingSession, 'trainingSessions' => $trainingSessions]);
+    }
+ 
+
+    
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'day' => ['required', 'string'],
+            'starts_at' => [
+                'required'
+            ],
+            'finishes_at' => [
+                'required'
+            ],
+
+        ]);
+
+        $validate_old_seesions = TrainingSession::where('day', '=', $request->day)->where("starts_at", "!=", null)->where("finishes_at", "!=", null)->where(function ($q) use ($request) {
+            $q->whereRaw("starts_at = '$request->starts_at' and finishes_at ='$request->finishes_at'")
+                ->orwhereRaw("starts_at < '$request->starts_at' and finishes_at > '$request->finishes_at'")
+                ->orwhereRaw("starts_at > '$request->starts_at' and starts_at < '$request->finishes_at'")
+                ->orwhereRaw("finishes_at > '$request->starts_at' and finishes_at < '$request->finishes_at'")
+                ->orwhereRaw("starts_at > '$request->starts_at' and finishes_at < '$request->finishes_at'");
+        })->where('id', '!=', $id)->get()->toArray();
+
+        if (count($validate_old_seesions) > 0)
+            return back()->withErrors("Time invalid")->withInput();
+
+
+        if (count(DB::select("select * from training_session_user where training_session_id = $id")) != 0) {
+            return back()->withErrors("You can't edit this session because there are users in it!")->withInput();
+        }
+
+
+
+        TrainingSession::where('id', $id)->update([
+
+            'name' => $request->all()['name'],
+            'day' => $request->day,
+            'starts_at' => $request->starts_at,
+            'finishes_at' => $request->finishes_at,
+
+
+
+        ]);
+        return redirect()->route('trainingSession.listSessions');
+    }
+
 }
-
-
-
