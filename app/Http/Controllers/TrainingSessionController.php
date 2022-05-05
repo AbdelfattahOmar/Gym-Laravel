@@ -117,11 +117,11 @@ public function edit($id)
 
         $trainingSession = TrainingSession::find($id);
 
-        return view('TrainingSessions.edit_training_session', ['trainingSession' => $trainingSession, 'trainingSessions' => $trainingSessions]);
+        return view('trainingSession.edit_training_session', ['trainingSession' => $trainingSession, 'trainingSessions' => $trainingSessions]);
     }
  
 
-    
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -147,10 +147,6 @@ public function edit($id)
         if (count($validate_old_seesions) > 0)
             return back()->withErrors("Time invalid")->withInput();
 
-
-        if (count(DB::select("select * from training_session_user where training_session_id = $id")) != 0) {
-            return back()->withErrors("You can't edit this session because there are users in it!")->withInput();
-        }
 
 
 
