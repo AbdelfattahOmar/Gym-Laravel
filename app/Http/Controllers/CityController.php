@@ -15,13 +15,13 @@ class CityController extends Controller
     #=======================================================================================#
     #			                          list Function                                   	#
     #=======================================================================================#
-    public function list()
+    public function index()
     {
         $allCities = City::all();
         if (count($allCities) <= 0) { //for empty statement
             return view('empty');
         }
-        return view("city.list", ['allCities' => $allCities]);
+        return view("city.index", ['allCities' => $allCities]);
     }
 
     #=======================================================================================#

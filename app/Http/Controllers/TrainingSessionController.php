@@ -11,9 +11,9 @@ class TrainingSessionController extends Controller
     public function index()
     {
         $trainingSessions = TrainingSession::all();
-        if (count($trainingSessions) <= 0) {
-            return view('empty');
-        }
+        // if (count($trainingSessions) <= 0) {
+        //     return view('empty');
+        // }
         return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);
     }
 
