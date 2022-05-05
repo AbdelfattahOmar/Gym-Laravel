@@ -49,6 +49,13 @@ class GymManagerController extends Controller
 
         return to_route('gymManager.index');
     }
+
+    public function show($id){
+        $gymManager = User::find($id);
+        return view('gymManager.show' , [
+            'gymManager' => $gymManager
+        ]);
+    }
 }
 
 

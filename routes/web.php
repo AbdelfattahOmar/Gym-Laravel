@@ -74,6 +74,7 @@ Route::controller(CityManagerController::class)->group(function () {
 Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('gymManager.index')->middleware('auth');
 Route::get('/gymManager/create', [GymManagerController::class, 'create'])->name('gymManager.create')->middleware('auth');
 Route::post('/gymManager/store', [GymManagerController::class, 'store'])->name('gymManager.store')->middleware('auth');
+Route::get('/gymManager/show/{id}', [GymManagerController::class, 'show'])->name('gymManager.show')->middleware('auth');
 
 
 Route::get('/TrainingSessions/index', [TrainingSessionController::class, 'index'])->name('trainingSession.listSessions')->middleware('auth');

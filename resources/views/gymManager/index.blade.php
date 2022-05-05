@@ -53,12 +53,16 @@
                             <td class="project-state">{{$GymManager->name}}</td>
                             <td class="project-state">{{$GymManager->email}}</td>
                             <td class="project-state">
-                                <img alt="Avatar" class="table-avatar" src="{{ asset($GymManager->profile_image) }}"></td>
+                                <img alt="Avatar" class="table-avatar" style="width:100px" src="{{ asset($GymManager->profile_image) }}"></td>
                             <td class="project-state">{{$GymManager->national_id}}</td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-success btn-sm" href="#"> View </a>
-                                <a class="btn btn-info btn-sm" href="#"> Edit </a>
-                                <a class="btn btn-danger btn-sm " href="#"> Delete </a>
+                                <a class="btn btn-success btn-sm" href="{{ route('gymManager.show',['id' => $GymManager['id']]) }}"> View </a>
+                                <a class="btn btn-info btn-sm" href="{{ route('gymManager.edit',['id' => $GymManager['id']]) }}"> Edit </a>
+                                <form action="{{ route('posts.delete',['post' => $post['id']]) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onClick="if(!confirm('Are you sure?')){return false;}" type="submit" class="btn btn-danger mr-2">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
