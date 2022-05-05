@@ -137,15 +137,16 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{ route('gymManager.index') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List gym managers.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                         
+                             <a href="{{ route('gymManager.create') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Add new city manager.</p>
+                                 <p>Add new gym manager.</p>
                              </a>
                          </li>
                      </ul>
@@ -162,7 +163,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{ route('coaches.index') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List coaches.</p>
                              </a>
