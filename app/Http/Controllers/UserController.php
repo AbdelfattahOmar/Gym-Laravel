@@ -21,13 +21,13 @@ class UserController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){     
      
-                    $btn = '<a href="/user/show/'.$row->id.'" class="btn btn-success fw-bold mr-2">View</a>';
+                    $btn = '<a href="/user/show/' . $row->id . '" class="btn btn-success fw-bold mr-2">View</a>';
                     $btn .= '<a href="/user/'.$row->id.'/edit" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
-                    $btn .= '<form action="'.$row->id.'" method="POST" class="d-inline">
-                    <input type="hidden" name="_token" value="'.csrf_token().'" />
-                    <input type="hidden" name="_method" value="delete" />
-                    <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
-                     </form>';
+                    $btn .= '<form action="/user/'.$row->id.'" method="POST" class="d-inline">
+                        <input type="hidden" name="_token" value="'.csrf_token().'" />
+                        <input type="hidden" name="_method" value="delete" />
+                        <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
+                    </form>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -58,24 +58,43 @@ class UserController extends Controller
         ]);
     }
     
-    public function update(StoreRequest $request, $user_id)
+    
+    public function update(Request $request, $id)
     {
+        $user = User::find($id);
+        $validated = $request->validate([
+            'name' => 'required|max:20',
+            'password' => 'required |min:6',
+            'email' => 'required|string|unique:users,email,' . $user->id,
+            'national_id' => 'digits_between:10,17|numeric|unique:users,national_id,' . $user->id,
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
+        ]);
 
-        $user = User::find($user_id);
         $user->name = $request->name;
+        $user->password = $request->password;
         $user->email = $request->email;
+        $user->national_id = $request->national_id;
+
         if ($request->hasFile('profile_image')) {
             $image = $request->file('profile_image');
             $name = time() . \Str::random(30) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/imgs');
             $image->move($destinationPath, $name);
             $imageName = 'imgs/' . $name;
-            if ($user->profile_image)
-                File::delete(public_path('imgs/' . $user->profile_image));
             $user->profile_image = $imageName;
         }
         $user->save();
-        return redirect()->route('user.admin_profile', auth()->user()->id)->with('success', 'Your data successfully updated');
+        
+        return to_route('users.index');
+    }
+
+    public function delete($id)
+    {
+
+        $user = User::find($id);
+        $user->delete();
+        return to_route('users.index'); 
+       
     }
 
     public function store(StoreRequest $request)

@@ -32,9 +32,10 @@ Route::get('/home', function () {
 
 // user routes
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/show-profile', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::get('/user/edit-profile', [UserController::class, 'edit_profile'])->name('user.edit_admin_profile')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::get('/gym/training_session', [TrainingController::class, 'create'])->name('gym.training_session')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update')->middleware('role:admin|cityManager|gymManager');
+Route::delete('/user/{id}', [UserController::class, 'delete'])->name('user.delete')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
 // city routes
 Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth')->middleware('role:admin');

@@ -19,19 +19,15 @@ class GymManagerController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($row){     
      
-                        $btn = '<a href="/gymManager/show/'.$row->id.'" class="btn btn-success fw-bold mr-2 ml-5">View</a>';
-                        $btn .= '<a href="/gymManager/'.$row->id.'/edit" style="color:#fff" class="btn btn-info fw-bold mr-1">Edit</a>';
-                        // $btn .= '<button class="deleteRecord" data-id="'.$row->id.'" >Delete</button>';
-                        $btn .= '<form action="'.$row->id.'" method="POST" class="d-inline">
+                        $btn = '<a href="/gymManager/show/'.$row->id.'" class="btn btn-success fw-bold mr-2">View</a>';
+                        $btn .= '<a href="/gymManager/'.$row->id.'/edit" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
+                        $btn .= '<form action="/gymManager/'.$row->id.'" method="POST" class="d-inline">
                         <input type="hidden" name="_token" value="'.csrf_token().'" />
                         <input type="hidden" name="_method" value="delete" />
-                        <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-1">Delete</button>
-                    </form>';
-                    $btn .= '<a href="javascript:void(0)" onclick="banUser('.$row->id.')"
-                    class="btn btn-dark "><i class="fa fa-user-lock"></i></a>';
+                        <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
+                        </form>';
                             return $btn;
                     })
-                    
                     ->rawColumns(['action'])
                     ->make(true);
         }
@@ -131,11 +127,7 @@ class GymManagerController extends Controller
         $user = User::find($id);
         $user->delete();
         return to_route('gymManager.index'); 
-        // User::find($id)->delete($id);
-  
-        // return response()->json([
-        //     'success' => 'Record deleted successfully!'
-        // ]);
+       
     }
 }
 
