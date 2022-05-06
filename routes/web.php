@@ -8,6 +8,7 @@ use App\Http\Controllers\TrainingSessionController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\GymManagerController;
+use App\Http\Controllers\CityManagerController;
 use App\Http\Controllers\TrainingPackagesController;
 use App\Http\Controllers\AttendanceController;
 /*
@@ -20,6 +21,7 @@ use App\Http\Controllers\AttendanceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home')->middleware('auth');
@@ -29,12 +31,11 @@ Route::get('/home', function () {
 })->name('home')->middleware('auth');
 
 // user routes
-Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/{id}', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/{users}/edit-profile', [UserController::class, 'edit_profile'])->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::put('/user/{users}', [UserController::class, 'update'])->name('user.update')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user', [UserController::class, 'index'])->name('layouts.user-layout')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-
+Route::group(['middleware' => ['auth', 'logs-out-banned-user']], function () {
+    Route::get('/user/show-profile', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('logs-out-banned-user')->middleware('role:admin');
+    Route::get('/user/edit-profile', [UserController::class, 'edit_profile'])->name('user.edit_admin_profile')->middleware('logs-out-banned-user')->middleware('role:admin');
+    Route::get('/gym/training_session', [TrainingController::class, 'create'])->name('gym.training_session')->middleware('logs-out-banned-user')->middleware('role:admin');
+});
 // city routes
 Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth')->middleware('role:admin');
 Route::get('/city/create', [CityController::class, 'create'])->name('city.create')->middleware('auth')->middleware('role:admin');
@@ -55,7 +56,7 @@ Route::controller(GymController::class)->group(function () {
     Route::post('/gym/store', 'store')->name('gym.store')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager');
     Route::get('/gym/edit/{gym}', 'edit')->name('gym.edit')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager');
     Route::put('/gym/update/{gym}', 'update')->name('gym.update')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager');
-    Route::delete('/gym/{id}', 'deleteGym')->name('gym.delete')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager'); 
+    Route::delete('/gym/{id}', 'deleteGym')->name('gym.delete')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager');
     Route::get('/gym/show/{id}', 'show')->name('gym.show')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager');
 });
 
@@ -101,7 +102,7 @@ Route::put('/TrainingSessions/{session}', [TrainingSessionController::class, 'up
 Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::get('/coach/create', [CoachController::class, 'create'])->name('coaches.create')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::post('/coach/store', [CoachController::class, 'store'])->name('coaches.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
-Route::get('/coach/show/{id}',[CoachController::class, 'show'])->name('coaches.show')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
+Route::get('/coach/show/{id}', [CoachController::class, 'show'])->name('coaches.show')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::get('/coach/edit/{id}', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::put('/coach/{id}', [CoachController::class, 'update'])->name('coaches.update');
 Route::delete('/coach/{id}', [CoachController::class, 'delete'])->name('coaches.delete')->middleware('auth');

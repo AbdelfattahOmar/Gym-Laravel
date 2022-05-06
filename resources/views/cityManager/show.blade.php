@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -36,12 +36,12 @@
                             <td>{{$singleUser->id}}</td>
                             <td>{{$singleUser->name}} </td>
                             <td>{{$singleUser->email}} </td>
-                            <td><img alt="Avatar" class="table-avatar" src="{{$singleUser->profile_image}}"></td>
+                            <td><img alt="Avatar" style="width:50px" src="{{asset($singleUser->profile_image)}}"></td>
                             <td>{{ $singleUser->national_id }} </td>
                         </tr>
                     </tbody>
                     <tbody>
-
+                   
                        
                     </tbody>
                 </table>
