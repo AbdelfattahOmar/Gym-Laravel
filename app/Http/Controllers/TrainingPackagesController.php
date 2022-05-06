@@ -26,6 +26,15 @@ class TrainingPackagesController extends Controller
         return view('trainingPackages.show_training_package', ['package' => $package]);
     }
 
+    public function edit($id)
+    {
+        $packages = TrainingPackage::all();
+
+        $package = TrainingPackage::find($id);
+
+        return view('trainingPackages.editPackage', ['package' => $package, 'packages' => $packages]);
+    }
+
     public function deletePackage($id)
     {
         $package = TrainingPackage::findorfail($id);
