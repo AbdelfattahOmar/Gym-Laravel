@@ -70,7 +70,7 @@ class StripeController extends Controller
 
     public function index()
     {
-        $revenues = Revenue::all();
+        $revenues = Revenue::paginate(10);
         return view('paymentPackage.purchase_history', [
             'revenues' => $revenues,
         ]);

@@ -74,35 +74,47 @@
                                 @endrole
 
 
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                    </td> 
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+
+            <!-- /.card -->
+        </section>
+        <div class="text-center">
+            {{ $packages->links() }}
         </div>
-        <!-- /.card -->
-
-    </section>
-</div>
-<!-- /.content-wrapper -->
-<script>
-function deletePackage(id) {
-    if (confirm("Do you want to delete this record?")) {
-        $.ajax({
-            url: '/trainingPackages/' + id,
-            type: 'DELETE',
-            data: {
-                _token: $("input[name=_token]").val()
-            },
-            success: function(response) {
-                $("#did" + id).remove();
+        <style>
+            svg {
+                width: 35px;
             }
-        });
-    }
-}
-</script>
+        </style>
 
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <script>
+        function deletePackage(id) {
+            if (confirm("Do you want to delete this record?")) {
+                $.ajax({
+                    url: '/trainingPackages/' + id,
+                    type: 'DELETE',
+                    data: {
+                        _token: $("input[name=_token]").val()
+                    },
+                    success: function(response) {
+                        $("#did" + id).remove();
+                    }
+                });
+            }
+        }
+    </script>
 
 @endsection

@@ -85,6 +85,14 @@
             <!-- /.card -->
 
         </section>
+        <div class="text-center">
+            {{ $revenues->links() }}
+        </div>
+        <style>
+            svg {
+                width: 35px;
+            }
+        </style>
     </div>
     <!-- /.content-wrapper -->
 @endsection
