@@ -19,4 +19,10 @@ class TrainingPackagesController extends Controller
         }
         return view('trainingPackages.listPackages', ['packages' => $packages]);
     }
+
+    public function show($id)
+    {
+        $package = TrainingPackage::findorfail($id);
+        return view('trainingPackages.show_training_package', ['package' => $package]);
+    }
 }

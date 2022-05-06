@@ -59,7 +59,7 @@
                                     </td>
                                     <td class="project-actions text-center">
                                         <a class="btn btn-info btn-sm"
-                                            href="#">
+                                            href="{{ route('trainingPackeges.show_training_package', $package['id']) }}">
 
                                             <i class="fa fa-eye"></i>
                                         </a>
