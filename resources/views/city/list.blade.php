@@ -41,6 +41,7 @@
                             <th class="project-state"> City Name</th>
                             <th class="project-state"> City Manager Name</th>
                             <th class="project-state">Created at</th>
+                            <th class="project-state">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,6 +77,14 @@
         <!-- /.card -->
     </section>
 </div>
+<div class="text-center">
+    {{ $allCities->links() }}
+</div>
+<style>
+svg {
+    width: 35px;
+}
+</style>
 <!-- /.content-wrapper -->
 <script>
 function deleteCity(id, manager) {

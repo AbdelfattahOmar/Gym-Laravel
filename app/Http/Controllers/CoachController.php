@@ -18,8 +18,8 @@ class CoachController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="/coach/show/' . $row->id . '" class="btn btn-success fw-bold mr-2">View</a>';
-                    $btn .= '<a href="/coach/edit/' . $row->id . '" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
+                    $btn = '<a href="/coach/show/' . $row->id . '" class="btn btn-success fw-bold ml-5 mr-2">View</a>';
+                    $btn .= '<a href="/coach/edit/' . $row->id . '" style="color:#fff" class="btn btn-info fw-bold mr-1">Edit</a>';
                     $btn .= '<form action="'.$row->id.'" method="POST" class="d-inline">
                         <input type="hidden" name="_token" value="'.csrf_token().'" />
                         <input type="hidden" name="_method" value="delete" />
