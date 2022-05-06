@@ -50,11 +50,46 @@ class TrainingPackagesController extends Controller
             'price' => $request->price * 100,
             'sessions_number' => $request->sessions_number,
         ]);
-        
+
         return redirect()->route('trainingPackeges.listPackeges');
     }
 
-    public function deletePackage($id)
+    public function create()
+    {
+        $packages = TrainingPackage::all();
+
+
+        return view('trainingPackages.createPackage', [
+            'packages' => $packages,
+
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required'],
+            'price' => ['required', 'numeric', 'min:10', 'max:4000'],
+            'sessions_number' => ['required', 'numeric', 'min:1', 'max:60'],
+        ]);
+
+        $requestData = request()->all();
+        $package = TrainingPackage::create($requestData);
+
+        $id = $package->id;
+
+
+        $data = array('gym_id' => $request->gym_id, "training_package_id" => $id);
+        DB::table('gyms_training_packages')->insert($data);
+
+
+
+        return redirect()->route('trainingPackeges.listPackeges');
+    }
+
+
+
+    public function destroy($id)
     {
         $package = TrainingPackage::findorfail($id);
         $package->delete();
