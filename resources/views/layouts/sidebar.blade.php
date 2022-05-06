@@ -292,26 +292,31 @@
                      </a>
                  </li>
                  <!-- End of banned users. -->
-                 <!-- logout / maybe added to -->
-                 <hr style="color: white">
-                 <ul>
-                    <li class="nav-item">
-                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                              <i class="fa-solid fa-right-from-bracket fs-6"></i> 
-                              Logout 
-                        
-                      </li> 
-                 </ul>
-       
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
+                 <!-- logout  -->
+                 <li class="nav-item">
+                    <hr style="color: white">
+                    
+                       <li class="nav-item">
+                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
+                                 Logout 
+                           
+                         </li> 
+                    </ul>
+          
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                   @csrf
+               </form>
+            </nav>
+         </li> 
+                
+             </ul>
          </nav>
          <!-- /.sidebar-menu -->
      </div>
-     <!-- /.sidebar -->
      @endrole
+     <!-- /.sidebar -->
  </aside>
-
+ 
 
