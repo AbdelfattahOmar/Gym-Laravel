@@ -15,18 +15,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            AdminUserSeeder::class,
-            CitySeeder::class,
-            GymSeeder::class,
-            GymManagerSeeder::class,
-            CitiesManagerSeeder::class,
-            PermissionsSeeder::class,
-            TrainingSessionSeeder::class,
-            TrainingSessionUserSeeder::class,
-            TrainingPackagesSeeder::class,
-            UsersSeeder::class,
-
-        ]);
+        $this->call(PermissionsSeeder::class);
+        $this->call(CitySeeder::class);
+        $this->call(GymSeeder::class);
+        $this->call(AdminUserSeeder::class);
+        $this->call(CitiesManagerSeeder::class);
+        $this->call(GymManagerSeeder::class);
+        $this->call(CoachesSeeder::class);
+        $this->call(UsersSeeder::class);
+        $this->call(TrainingPackagesSeeder::class);
+        $this->call(TrainingSessionSeeder::class);
+        $this->call(TrainingSessionUserSeeder::class);
+        $this->call(TrainingPackagesSeeder::class);
     }
 }

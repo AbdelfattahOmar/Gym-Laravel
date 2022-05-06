@@ -15,10 +15,7 @@ class TrainingSessionController extends Controller
     {
         $trainingSessions = TrainingSession::all();
        
-        return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);
-
-
-       
+        return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);   
     }
 
 

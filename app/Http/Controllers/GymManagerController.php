@@ -8,13 +8,7 @@ use Yajra\DataTables\DataTables;
 
 class GymManagerController extends Controller
 {
-    // public function index(){
-    //     $allGymManagers = User::role('gymManager')->get();
-    //     return view('gymManager.index' , [
-    //         'allGymManagers' => $allGymManagers
-    //     ]);
-    // }
-
+  
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -144,8 +138,3 @@ class GymManagerController extends Controller
 
 
        
-
-
-
-
-
