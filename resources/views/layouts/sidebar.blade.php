@@ -150,13 +150,11 @@
                         </li>
                         <li class="nav-item">
 
-<<<<<<< HEAD
                             <a href="{{ route('gymManager.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add new gym manager.</p>
                             </a>
                         </li>
-=======
                          
                      </ul>
                  </li>
@@ -192,7 +190,6 @@
                                  Logout 
                            
                          </li> 
->>>>>>> 6bfad30fe97cf77dcaa6cf7af77f068f4494cbf1
                     </ul>
                 </li>
                 @endrole
