@@ -12,10 +12,14 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
+            @if (Auth::user()->profile_image == null)
+                <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
+            @else
                 <img src="{{ asset(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image">
+            @endif    
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <p href="#" class="fw-bold text-white d-block">{{ Auth::user()->name }}</p>
             </div>
         </div>
 
@@ -37,7 +41,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('home') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard.
