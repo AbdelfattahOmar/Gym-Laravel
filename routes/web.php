@@ -8,6 +8,7 @@ use App\Http\Controllers\TrainingSessionController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\GymManagerController;
+use App\Http\Controllers\TrainingPackagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -96,3 +97,8 @@ Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.ind
 
 Auth::routes();
 Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
+
+
+// Packages Routes
+
+Route::get('/trainingPackeges/index', [TrainingPackagesController::class, 'index'])->name('trainingPackeges.listPackeges')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
