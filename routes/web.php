@@ -97,6 +97,7 @@ Route::put('/TrainingSessions/{session}', [TrainingSessionController::class, 'up
 
 ///  coach routes
 Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.index')->middleware('auth');
-
+Route::get('/coach/create', [CoachController::class, 'create'])->name('coaches.create')->middleware('auth');
+Route::post('/coach/store', [CoachController::class, 'store'])->name('coaches.store')->middleware('auth');
 Auth::routes();
 Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
