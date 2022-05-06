@@ -56,20 +56,20 @@
                                     <td>{{ $trainingSession->finishes_at }}</td>
 
                                     <td class="project-actions text-center">
-                                        <a class="btn btn-info btn-sm"
+                                        <a class="btn btn-success btn-sm"
                                             href="{{ route('trainingSession.show_training_session', $trainingSession['id']) }}">
 
-                                            <i class="fa fa-eye"></i>
+                                            View</i>
                                         </a>
-                                        <a class="btn btn-warning btn-sm text-white"
+                                        <a class="btn btn-info btn-sm text-white"
                                             href="{{ route('trainingSession.edit_training_session', $trainingSession['id']) }}">
-                                            <i class="fas fa-pencil-alt"></i></a>
+                                            Edit</a>
 
 
                                             <form action="{{ route('trainingSession.deleteSession', $trainingSession['id']) }}" method="post" class="d-inline-block">
                                               @csrf
                                              @method('DELETE')
-                                          <button href="" onclick="return confirm('Are you sure, you want Delete?')"  class="btn btn-danger btn-sm "><i class="fas fa-trash"></i></button>
+                                          <button href="" onclick="return confirm('Are you sure, you want Delete?')"  class="btn btn-danger btn-sm ">Delete</i></button>
 
 
                                                </form>
