@@ -17,11 +17,11 @@ class CityController extends Controller
     #=======================================================================================#
     public function index()
     {
-        $allCities = City::paginate();
+        $allCities = City::paginate(10);
         if (count($allCities) <= 0) { //for empty statement
             return view('empty');
         }
-        
+
         return view("city.list", ['allCities' => $allCities]);
     }
 

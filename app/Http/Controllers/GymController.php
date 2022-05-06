@@ -18,11 +18,11 @@ class GymController extends Controller
 
     public function list()
     {
-        $gymsFromDB = Gym::all();
-        if (count($gymsFromDB) <= 0) { //for gym empty statement
+        $gyms = Gym::paginate(10);
+        if (count($gyms) <= 0) { //for gym empty statement
             return view('empty');
         }
-        return view("gym.list", ['gyms' => $gymsFromDB]);
+        return view("gym.list", ['gyms' => $gyms]);
     }
 
     #Show Function                                 	

@@ -77,6 +77,7 @@
     </section>
 </div>
 
+
 < !-- /.content-wrapper -->
     <script>
     function banUser(id) {
