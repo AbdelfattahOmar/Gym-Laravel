@@ -43,7 +43,7 @@
                             <td class="project-state">{{$gymManager->name}}</td>
                             <td class="project-state">{{$gymManager->email}}</td>
                             <td class="project-state">
-                                <img alt="Avatar" class="table-avatar" style="width:100px" src="{{ asset($gymManager->profile_image) }}"></td>
+                                <img alt="Avatar" class="table-avatar" style="width:50px" src="{{ asset($gymManager->profile_image) }}"></td>
                             <td class="project-state">{{$gymManager->national_id}}</td>
                             
                         </tr>
