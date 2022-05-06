@@ -41,7 +41,7 @@ class CityManagerController extends Controller
             'password' => 'required |min:6',
             'email' => 'required|string|unique:users,email,',
             'national_id' => 'digits_between:10,17|required|numeric|unique:users',
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
         if ($request->hasFile('profile_image') == null) {

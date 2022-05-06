@@ -36,12 +36,12 @@
                             <td>{{$singleUser->id}}</td>
                             <td>{{$singleUser->name}} </td>
                             <td>{{$singleUser->email}} </td>
-                            <td><img alt="Avatar" class="table-avatar" src="{{$singleUser->profile_image}}"></td>
+                            <td><img alt="Avatar" style="width:50px" src="{{asset($singleUser->profile_image)}}"></td>
                             <td>{{ $singleUser->national_id }} </td>
                         </tr>
                     </tbody>
                     <tbody>
-
+                   
                        
                     </tbody>
                 </table>
