@@ -2,6 +2,7 @@
 
 @section('content')
 
+<!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -31,34 +32,16 @@
                 <table class="table table-striped data-table" id="proj">
                     <thead>
                         <tr>
-                            <th class="project-state text-center">ID</th>
-                            <th class="project-state text-center"> Gym Manager Name</th>
-                            <th class="project-state text-center">Email</th>
-                            <th class="project-state text-center">Profile Picture</th>
-                            <th class="project-state text-center">National ID</th>
+                            <th class="project-state ">ID</th>
+                            <th class="project-state "> Gym Manager Name</th>
+                            <th class="project-state ">Email</th>
+                            <th class="project-state ">Profile Picture</th>
+                            <th class="project-state ">National ID</th>
                             <th class="project-state text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($allGymManagers as $GymManager)
-                        <tr>
-                            <td class="project-state text-center">{{$GymManager->id}}</td>
-                            <td class="project-state text-center">{{$GymManager->name}}</td>
-                            <td class="project-state text-center">{{$GymManager->email}}</td>
-                            <td class="project-state">
-                                <img alt="Avatar" class="table-avatar" style="width:100px" src="{{ asset($GymManager->profile_image) }}"></td>
-                            <td class="project-state text-center">{{$GymManager->national_id}}</td>
-                            <td class="project-actions text-center">
-                                <!-- <a class="btn btn-success fw-bold mr-2"  href="{{ route('gymManager.show',['id' => $GymManager['id']]) }}"> View </a>
-                                <a class="btn btn-info fw-bold mr-2" style="color:#fff" href="{{ route('gymManager.edit',['id' => $GymManager['id']]) }}"> Edit </a>
-                                <form action="{{ route('gymManager.delete',['id' => $GymManager['id']]) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onClick="if(!confirm('Are you sure?')){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
-                                </form> -->
-                            </td>
-                        </tr>
-                        @endforeach
+                        
                     </tbody>
                 </table>
             </div>
@@ -69,5 +52,67 @@
 </div>
 
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    
+$(function() {
+
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('gymManager.index') }}",
+        columns: [{
+                data: 'id',
+                name: 'id'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'email',
+                name: 'email'
+            },
+            {
+                data: 'profile_image',
+                name: 'profile_image',
+                render: function( data, type, full, meta ) {
+                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data ) + "\" width=\"50\"/>";
+                }
+            },
+            {
+                data: 'national_id',
+                name: 'national_id'
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false
+            },
+        ]
+    });
+});
+
+// $(".deleteRecord").click(function(){
+//     var id = $(this).data("id");
+//     var token = $("meta[name='csrf-token']").attr("content");
+   
+//     $.ajax(
+//     {
+//         url: "gymManager/"+id,
+//         type: 'DELETE',
+//         data: {
+//             "id": id,
+//             "_token": token,
+//         },
+//         success: function (){
+//             console.log("it Works");
+//         }
+//     });
+// });
+</script>
 @endsection
 

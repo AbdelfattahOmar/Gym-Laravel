@@ -40,20 +40,13 @@
                             <th class="project-state"> ID </th>
                             <th class="project-state"> Name</th>
                             <th class="project-state"> Email</th>
+                            <th  class="project-state">profile_image</th>
+                            <th  class="project-state">national_id</th>
                             <th class="project-state"> Action</th>
-                            <th class="project-state"></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($coaches as $coach)
-                                <tr>
-                                    <td class="project-state">{{$coach->id}}</td>
-                                    <td class="project-state">{{$coach->name }}</td>
-                                    <td class="project-state">
-                                    <span class="project-state">{{$coach->email}}</span>
-                                    </td>
-                                </tr>
-                     @endforeach
+                  
                     </tbody>
                 </table>
             </div>
@@ -68,6 +61,7 @@
 
 @section('scripts')
 <script type="text/javascript">
+    
 $(function() {
 
     var table = $('.data-table').DataTable({
@@ -87,6 +81,17 @@ $(function() {
                 name: 'email'
             },
             {
+                data: 'profile_image',
+                name: 'profile_image',
+                render: function( data, type, full, meta ) {
+                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data ) + "\" width=\"50\"/>";
+                }
+            },
+            {
+                data: 'national_id',
+                name: 'national_id'
+            },
+            {
                 data: 'action',
                 name: 'action',
                 orderable: false,
@@ -94,7 +99,6 @@ $(function() {
             },
         ]
     });
-
 });
 </script>
 @endsection

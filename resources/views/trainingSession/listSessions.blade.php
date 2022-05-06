@@ -62,7 +62,7 @@
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a class="btn btn-warning btn-sm text-white"
-                                            href="#">
+                                            href="{{ route('trainingSession.edit_training_session', $trainingSession['id']) }}">
                                             <i class="fas fa-pencil-alt"></i></a>
 
 

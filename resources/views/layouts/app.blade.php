@@ -81,7 +81,7 @@
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- datatable js -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    <script src="dist/js/main.js"></script>
+    <script src="{{ asset('dist/js/main.js') }}"></script>
     @yield('scripts')
 
 </body>
