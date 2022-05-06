@@ -38,10 +38,11 @@
                             <td class="project-state text-center">{{$cityData->name}}</td>
                             @if ($citiesManagers == null)
                             <td class="project-state text-center">This city has no Manager</td>
+                            <td class="project-state text-center">This city has no Manager </td>
                             @else
                             <td class="project-state text-center">{{$citiesManagers->name}}</td>
-                            @endif
                             <td class="project-state text-center">{{$citiesManagers->email}} </td>
+                            @endif
 
                         </tr>
                     </tbody>
