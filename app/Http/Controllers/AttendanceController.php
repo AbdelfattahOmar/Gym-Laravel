@@ -17,7 +17,7 @@ class AttendanceController extends Controller
         ->join('gyms',"gyms.id",'=','users.gym_id')
         ->join('cities',"gyms.city_id",'=','cities.id')
         ->get();
-        // dd($history_attendances);
+        dd($history_attendances);
         return view('attendances.attendance', [
             'attendances' =>$history_attendances,
         ]);
