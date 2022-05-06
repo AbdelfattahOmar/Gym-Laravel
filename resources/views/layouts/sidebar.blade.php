@@ -150,11 +150,49 @@
                         </li>
                         <li class="nav-item">
 
+<<<<<<< HEAD
                             <a href="{{ route('gymManager.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add new gym manager.</p>
                             </a>
                         </li>
+=======
+                         
+                     </ul>
+                 </li>
+                 <!-- end of training sessions -->
+                 <!-- Attendance Table -->
+                 <li class="nav-item">
+                     <a href="{{ route('attendance') }}" class="nav-link">
+                         <i class="nav-icon fas fa-book"></i>
+                         <p>
+                             Attendance table.
+                         </p>
+                     </a>
+                 </li>
+                 <!-- End of attendance table -->
+                 <!-- Banned Users -->
+                 <li class="nav-item">
+                     <a href="#" class="nav-link">
+                         <i class="nav-icon fa fa-user-lock"></i>
+                         <p>
+                             Banned users.
+                         </p>
+                     </a>
+                 </li>
+                 <!-- End of banned users. -->
+                 <!-- logout  -->
+                 <li class="nav-item">
+                    <hr style="color: white">
+                    
+                       <li class="nav-item">
+                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
+                                 Logout 
+                           
+                         </li> 
+>>>>>>> 6bfad30fe97cf77dcaa6cf7af77f068f4494cbf1
                     </ul>
                 </li>
                 @endrole

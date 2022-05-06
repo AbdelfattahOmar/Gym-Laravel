@@ -10,6 +10,7 @@ use App\Http\Controllers\CoachController;
 use App\Http\Controllers\GymManagerController;
 use App\Http\Controllers\CityManagerController;
 use App\Http\Controllers\TrainingPackagesController;
+use App\Http\Controllers\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,6 +106,9 @@ Route::get('/coach/show/{id}', [CoachController::class, 'show'])->name('coaches.
 Route::get('/coach/edit/{id}', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::put('/coach/{id}', [CoachController::class, 'update'])->name('coaches.update');
 Route::delete('/coach/{id}', [CoachController::class, 'delete'])->name('coaches.delete')->middleware('auth');
+
+// attendance routes
+Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
 
 Auth::routes();
