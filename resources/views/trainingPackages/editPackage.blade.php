@@ -21,6 +21,15 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- Main content -->
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <section class="content">
     
         <form action="{{route('trainingPackeges.update_package',[$package['id']])}}" method="POST" enctype="multipart/form-data" class="w-75 m-auto">
@@ -46,16 +55,6 @@
                                 <label for="sessions">Sessions Number</label>
                                 <input type="text" id="sessions" class="form-control" value="{{$package->sessions_number}}" name="sessions_number">
 
-                                @if ($errors->any())
-                            <div class="w-4/8 m-auto text-center">
-                                @foreach ($errors->all() as $error)
-                                    <li class="text-red-500 list-none">
-                                        {{$error}}
-                                    </li>
-                                @endforeach
-
-                            </div>
-                                @endif
                             </div>
                         </div>
                     </div>
