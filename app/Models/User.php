@@ -14,9 +14,11 @@ use Spatie\Permission\Traits\HasRoles;
 
 
 
-class User extends Authenticatable implements MustVerifyEmail
+
+class User extends Authenticatable implements MustVerifyEmail, BannableContract
 {
     use HasFactory, Notifiable, SoftDeletes, HasRoles;
+    use Bannable;
 
 
     /**
