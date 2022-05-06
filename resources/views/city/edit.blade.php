@@ -52,6 +52,7 @@
                                 <select required class=" form-control @error('manager_id') is-invalid @enderror"
                                     name="manager_id" id="manager_id">
 
+                                    <option value='optional'>No City Manager</option>
                                     <optgroup label="Available City Managers">
                                         @foreach ($cityManagers as $manager)
                                         <option value={{ $manager->id }}>{{ $manager->name }}</option>
