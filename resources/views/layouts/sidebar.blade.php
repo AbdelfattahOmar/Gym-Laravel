@@ -65,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="{{ route('city.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add a new city.</p>
                             </a>
@@ -212,7 +212,6 @@
                         <p>
                             Training packages.
                             <i class="fas fa-angle-left right"></i>
-
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
