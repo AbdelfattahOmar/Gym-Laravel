@@ -16,13 +16,11 @@ class CityManagerController extends Controller
 
     public function list()
     {
-        $usersFromDB =  User::role('cityManager')->withoutBanned()->get();
-        // $usersFromDB = User::all();
-        // $usersFromDB =  User::role('cityManager')->get();
-        if (count($usersFromDB) <= 0) { //for empty statement
+        $users =  User::role('cityManager')->withoutBanned()->get(); 
+        if (count($users) <= 0) { //for empty statement
             return view('empty');
         }
-        return view("cityManager.list", ['users' => $usersFromDB]);
+        return view("cityManager.list", ['users' => $users]);
     }
 
 
@@ -41,7 +39,7 @@ class CityManagerController extends Controller
             'password' => 'required |min:6',
             'email' => 'required|string|unique:users,email,',
             'national_id' => 'digits_between:10,17|required|numeric|unique:users',
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
         if ($request->hasFile('profile_image') == null) {
@@ -116,12 +114,12 @@ class CityManagerController extends Controller
         return redirect()->route('cityManager.list');
     }
 
- 
+
     public function deletecityManager($id)
     {
 
         $singleUser = User::findorfail($id);
         $singleUser->delete();
-        return response()->json(['success' => 'Record deleted successfully!']);
+        return redirect()->route('cityManager.list');
     }
 }

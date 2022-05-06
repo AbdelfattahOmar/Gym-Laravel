@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4>Show Gym Manager Number {{$singleUser->id}}</h4>
+                    <h4>Show Gym Manager</h4>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -22,26 +22,26 @@
                 <table class="table table-striped projects">
                 <thead>
                         <tr>
-                            <th>ID</th>
-                            <th> City Manager Name</th>
-                            <th>Email</th>
-                            <th>Profile Picture</th>
-                            <th>National ID</th>
+                            <th class="project-state text-center">ID</th>
+                            <th class="project-state text-center"> City Manager Name</th>
+                            <th class="project-state text-center">Email</th>
+                            <th class="project-state text-center">Profile Picture</th>
+                            <th class="project-state text-center">National ID</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                     
                         <tr>
-                            <td>{{$singleUser->id}}</td>
-                            <td>{{$singleUser->name}} </td>
-                            <td>{{$singleUser->email}} </td>
-                            <td><img alt="Avatar" class="table-avatar" src="{{$singleUser->profile_image}}"></td>
-                            <td>{{ $singleUser->national_id }} </td>
+                            <td class="project-state text-center">{{$singleUser->id}}</td>
+                            <td class="project-state text-center">{{$singleUser->name}} </td>
+                            <td class="project-state text-center">{{$singleUser->email}} </td>
+                            <td class="project-state text-center"><img alt="Avatar" style="width:50px" src="{{asset($singleUser->profile_image)}}"></td>
+                            <td class="project-state text-center">{{ $singleUser->national_id }} </td>
                         </tr>
                     </tbody>
                     <tbody>
-
+                   
                        
                     </tbody>
                 </table>

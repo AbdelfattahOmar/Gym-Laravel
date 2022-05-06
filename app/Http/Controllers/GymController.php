@@ -18,11 +18,11 @@ class GymController extends Controller
 
     public function list()
     {
-        $gymsFromDB = Gym::all();
-        if (count($gymsFromDB) <= 0) { //for gym empty statement
+        $gyms = Gym::paginate(10);
+        if (count($gyms) <= 0) { //for gym empty statement
             return view('empty');
         }
-        return view("gym.list", ['gyms' => $gymsFromDB]);
+        return view("gym.list", ['gyms' => $gyms]);
     }
 
     #Show Function                                 	
@@ -53,7 +53,7 @@ class GymController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'min:2'],
-            'cover_image' => ['nullable', 'mimes:jpg,jpeg'],
+            'cover_image' => ['nullable', 'mimes:jpg,jpeg,png'],
             'city_id' => ['required'],
         ]);
         if ($request->hasFile('cover_image') == null) {
@@ -97,7 +97,7 @@ class GymController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:20',
             'city_id' => 'required',
-            'cover_image' => 'nullable|image|mimes:jpg,jpeg',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
 

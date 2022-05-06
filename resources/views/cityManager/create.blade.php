@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
@@ -40,12 +40,6 @@
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Adding</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
@@ -78,7 +72,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <a href="#" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('cityManager.list') }}" class="btn btn-secondary">Cancel</a>
                         <input type="submit" value="Save Changes" class="btn btn-success float-right">
                     </div>
                 </div>
