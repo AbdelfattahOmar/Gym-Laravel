@@ -80,13 +80,26 @@
                         </tbody>
                     </table>
                 </div>
+
                 <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
+            <!-- /.card -->
         </section>
+        <div class="text-center">
+            {{ $packages->links() }}
+        </div>
+        <style>
+            svg {
+                width: 35px;
+            }
+        </style>
+
     </div>
     <!-- /.content-wrapper -->
+
+
+
     <script>
         function deletePackage(id) {
             if (confirm("Do you want to delete this record?")) {
@@ -103,4 +116,5 @@
             }
         }
     </script>
+
 @endsection
