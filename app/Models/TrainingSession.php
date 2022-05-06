@@ -29,9 +29,9 @@ class TrainingSession extends Model
     }
 
 
-    // public function trainingPackage()
-    // {
-    //     return $this->belongsTo(TrainingPackage::class);
-    // }
+    public function trainingPackage()
+    {
+        return $this->belongsTo(TrainingPackage::class);
+    }
 }
 
