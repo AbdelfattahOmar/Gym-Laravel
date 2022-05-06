@@ -2,19 +2,18 @@
 
 @section('content')
 
-<!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>All Gym Managers</h1>
+                    <h1>All Users</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Gym Managers</li>
+                        <li class="breadcrumb-item active">User</li>
                     </ol>
                 </div>
             </div>
@@ -25,21 +24,26 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Users</h3>
-
+                <h3 class="card-title">User</h3>
             </div>
             <div class="card-body p-0 ">
                 <table class="table table-striped data-table" id="proj">
                     <thead>
                         <tr>
-                            <th class="project-state"> ID </th>
-                            <th class="project-state"> Name</th>
-                            <th class="project-state"> Email</th>
+                            <th class="project-state">ID</th>
+                            <th class="project-state">Name</th>
+                            <th class="project-state">Email</th>
 
-                            <th class="project-state"> Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td class="project-state">{{$user->id}}</td>
+                            <td class="project-state">{{$user->name}}</td>
+                            <td class="project-state">{{$user->email}}</td>
+
+
+                        </tr>
 
                     </tbody>
                 </table>
@@ -51,36 +55,4 @@
 </div>
 
 
-@endsection
-
-@section('scripts')
-<script type="text/javascript">
-$(function() {
-
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('users.index') }}",
-        columns: [{
-                data: 'id',
-                name: 'id'
-            },
-            {
-                data: 'name',
-                name: 'name'
-            },
-            {
-                data: 'email',
-                name: 'email'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
-        ]
-    });
-});
-</script>
 @endsection

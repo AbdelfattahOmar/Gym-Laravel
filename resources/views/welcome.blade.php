@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -31,7 +32,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>revenueInDollars</h3>
+                            <h3>abdo</h3>
                             <p>New Orders</p>
                         </div>
                         <div class="icon">
@@ -45,7 +46,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>nosa</h3>
                             <p>Bounce Rate</p>
                         </div>
                         <div class="icon">
@@ -59,7 +60,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>nayra</h3>
                             <p>User Registrations</p>
                         </div>
                         <div class="icon">
