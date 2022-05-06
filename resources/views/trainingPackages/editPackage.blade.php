@@ -23,7 +23,7 @@
     <!-- Main content -->
     <section class="content">
     
-        <form action="" method="POST" enctype="multipart/form-data" class="w-75 m-auto">
+        <form action="{{route('trainingPackeges.update_package',[$package['id']])}}" method="POST" enctype="multipart/form-data" class="w-75 m-auto">
             @csrf
             @method('PUT')
             <div class="row">
@@ -63,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="#" class="btn btn-secondary">Cancel</a>
+                    <a href="{{route('trainingPackeges.listPackeges')}}" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Update" class="btn btn-success float-right">
                 </div>
             </div>

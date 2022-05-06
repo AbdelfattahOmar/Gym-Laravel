@@ -35,6 +35,25 @@ class TrainingPackagesController extends Controller
         return view('trainingPackages.editPackage', ['package' => $package, 'packages' => $packages]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => ['required'],
+            'price' => ['required', 'numeric', 'min:10', 'max:4000'],
+            'sessions_number' => ['required', 'numeric', 'min:1', 'max:60']
+        ]);
+
+
+        TrainingPackage::where('id', $id)->update([
+
+            'name' => $request->all()['name'],
+            'price' => $request->price * 100,
+            'sessions_number' => $request->sessions_number,
+        ]);
+        
+        return redirect()->route('trainingPackeges.listPackeges');
+    }
+
     public function deletePackage($id)
     {
         $package = TrainingPackage::findorfail($id);
