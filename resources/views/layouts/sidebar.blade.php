@@ -290,22 +290,7 @@
                     </a>
                 </li>
                 <!-- End of banned users. -->
-                
-                 <!-- logout  -->
-                 <li class="nav-item">
-                    <hr style="color: white">
-                    
-                       <li class="nav-item">
-                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
-                                 Logout 
-                            </li> 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                    </ul>
-                </li>
+                       
                 @endrole
                 
                
