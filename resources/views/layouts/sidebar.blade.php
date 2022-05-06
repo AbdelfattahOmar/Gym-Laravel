@@ -294,7 +294,7 @@
                  <!-- End of banned users. -->
                  <!-- logout / maybe added to -->
                  <hr style="color: white">
-                 <ul class="nav nav-treeview">
+                 <ul>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
