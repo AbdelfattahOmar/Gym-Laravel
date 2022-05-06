@@ -21,10 +21,13 @@ class UserController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){     
      
-                    $btn = '<a href="/user/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
-                    $btn .= '<a href="/user/'.$row->id.'/edit-profile" class="edit btn btn-info btn-sm">Edit</a>';
-                    $btn .= '<a href="/user/'.$row->id.'" class="edit btn btn-danger btn-sm">Delete</a>';
-    
+                    $btn = '<a href="/user/show/'.$row->id.'" class="btn btn-success fw-bold mr-2">View</a>';
+                    $btn .= '<a href="/user/'.$row->id.'/edit" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
+                    $btn .= '<form action="'.$row->id.'" method="POST" class="d-inline">
+                    <input type="hidden" name="_token" value="'.csrf_token().'" />
+                    <input type="hidden" name="_method" value="delete" />
+                    <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
+                     </form>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -39,19 +42,19 @@ class UserController extends Controller
         return view('500');
     }
 
-    public function show_profile($user_id)
-    {
-        $user = User::find($user_id);
-
-        return view('user.admin_profile', [
-            'user' => $user,
+    public function show($id){
+        $user = User::find($id);
+        return view('user.show' , [
+            'user' => $user
         ]);
     }
 
-    public function edit_profile($user_id)
+
+    public function edit($id)
     {
-        return view('user.edit_admin_profile', [
-            'users' => User::find($user_id),
+        $user = User::find($id);
+        return view('user.edit', [
+            'user' => $user
         ]);
     }
     

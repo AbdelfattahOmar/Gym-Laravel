@@ -21,7 +21,7 @@ class CityController extends Controller
         if (count($allCities) <= 0) { //for empty statement
             return view('empty');
         }
-        return view("city.index", ['allCities' => $allCities]);
+        return view("city.list", ['allCities' => $allCities]);
     }
 
     #=======================================================================================#

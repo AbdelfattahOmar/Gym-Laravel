@@ -31,10 +31,9 @@ Route::get('/home', function () {
 
 // user routes
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/{id}', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/{users}/edit-profile', [UserController::class, 'edit_profile'])->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::put('/user/{users}', [UserController::class, 'update'])->name('user.update')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user', [UserController::class, 'index'])->name('layouts.user-layout')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::get('/user/show-profile', [UserController::class, 'show_profile'])->name('user.admin_profile')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/user/edit-profile', [UserController::class, 'edit_profile'])->name('user.edit_admin_profile')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/gym/training_session', [TrainingController::class, 'create'])->name('gym.training_session')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
 
 // city routes
 Route::get('/city', [CityController::class, 'index'])->name('city.index')->middleware('auth')->middleware('role:admin');
