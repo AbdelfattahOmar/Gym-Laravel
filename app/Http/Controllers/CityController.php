@@ -65,7 +65,7 @@ class CityController extends Controller
         } else {
             City::create($requestData);
         }
-        return $this->list();
+        return to_route('city.index'); 
     }
     
     public function edit($cityID)

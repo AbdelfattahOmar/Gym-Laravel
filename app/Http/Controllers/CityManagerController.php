@@ -55,7 +55,7 @@ class CityManagerController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->profile_image = $imageName;
         $user->national_id = $request->national_id;
         $user->assignRole('cityManager');
