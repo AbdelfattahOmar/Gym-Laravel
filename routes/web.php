@@ -97,11 +97,11 @@ Route::put('/TrainingSessions/{session}', [TrainingSessionController::class, 'up
 
 
 ///  coach routes
-Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.index')->middleware('auth');
-Route::get('/coach/create', [CoachController::class, 'create'])->name('coaches.create')->middleware('auth');
-Route::post('/coach/store', [CoachController::class, 'store'])->name('coaches.store')->middleware('auth');
-Route::get('/coach/show/{id}',[CoachController::class, 'show'])->name('coaches.show')->middleware('auth');
-Route::get('/coach/edit/{id}', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth');
+Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
+Route::get('/coach/create', [CoachController::class, 'create'])->name('coaches.create')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
+Route::post('/coach/store', [CoachController::class, 'store'])->name('coaches.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
+Route::get('/coach/show/{id}',[CoachController::class, 'show'])->name('coaches.show')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
+Route::get('/coach/edit/{id}', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 Route::put('/coach/{id}', [CoachController::class, 'update'])->name('coaches.update');
 Route::delete('/coach/{id}', [CoachController::class, 'delete'])->name('coaches.delete')->middleware('auth');
 
