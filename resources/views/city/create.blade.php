@@ -1,7 +1,8 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper pb-4">
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -45,15 +46,19 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="manager_id">City Manger</label>
+                                <label for="manager_id">City Manager</label>
                                 <label style="color: #aeb1b6; ">(optional)</label>
                                 <select class=" form-control @error('manager_id') is-invalid @enderror"
                                     name="manager_id" id="manager_id">
                                     <optgroup label="Available City Managers">
                                         <option hidden>optional</option>
+
                                         @foreach ($cityManagers as $manager)
-                                        <option value={{ $manager->id }}>{{ $manager->name }}</option>
+                                        <option value={{ $manager->id }}>
+                                            {{ $manager->name }}
+                                        </option>
                                         @endforeach
+
                                     </optgroup>
                                 </select>
                                 @error('manager_id')
