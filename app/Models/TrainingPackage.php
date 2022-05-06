@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TrainingPackage extends Model
 {
     use HasFactory, SoftDeletes;
-    #=======================================================================================#
-    #			                    To allow insert in table                              	#
-    #=======================================================================================#
+   
     protected $fillable = [
         'name',
         'price',
