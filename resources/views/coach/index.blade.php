@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
 <div class="content-wrapper">
@@ -8,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>All coaches</h1>
+                    <h1>All Coaches</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">coaches</li>
+                        <li class="breadcrumb-item active">Coaches</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +23,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Cities</h3>
+                <h3 class="card-title">coach</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -46,6 +45,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach ($coaches as $coach)
+                                <tr>
+                                    <td class="project-state">{{$coach->id}}</td>
+                                    <td class="project-state">{{$coach->name }}</td>
+                                    <td class="project-state">
+                                    <span class="project-state">{{$coach->email}}</span>
+                                    </td>
+                                </tr>
+                     @endforeach
                     </tbody>
                 </table>
             </div>
@@ -65,7 +73,7 @@ $(function() {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.index') }}",
+        ajax: "{{ route('coaches.index') }}",
         columns: [{
                 data: 'id',
                 name: 'id'

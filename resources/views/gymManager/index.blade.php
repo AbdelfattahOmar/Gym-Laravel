@@ -49,13 +49,13 @@
                                 <img alt="Avatar" class="table-avatar" style="width:100px" src="{{ asset($GymManager->profile_image) }}"></td>
                             <td class="project-state text-center">{{$GymManager->national_id}}</td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-success fw-bold mr-2"  href="{{ route('gymManager.show',['id' => $GymManager['id']]) }}"> View </a>
+                                <!-- <a class="btn btn-success fw-bold mr-2"  href="{{ route('gymManager.show',['id' => $GymManager['id']]) }}"> View </a>
                                 <a class="btn btn-info fw-bold mr-2" style="color:#fff" href="{{ route('gymManager.edit',['id' => $GymManager['id']]) }}"> Edit </a>
                                 <form action="{{ route('gymManager.delete',['id' => $GymManager['id']]) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button onClick="if(!confirm('Are you sure?')){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
-                                </form>
+                                </form> -->
                             </td>
                         </tr>
                         @endforeach

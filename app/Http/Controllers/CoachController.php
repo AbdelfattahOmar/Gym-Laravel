@@ -9,8 +9,12 @@ class CoachController extends Controller
 {
     public function index()
     {
-       
-        return view('coach.index');
+        $coaches = User::role('coach')->get();
+            return view('coach.index' , [
+                'coaches' => $coaches 
+            ]);
     }
+
+    
 
 }
