@@ -26,6 +26,8 @@ class GymManagerController extends Controller
                         <input type="hidden" name="_method" value="delete" />
                         <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
                         </form>';
+                        $btn .= ' <a href="javascript:void(0)" onclick="banUser({{ '.$row->id.' }})" class="btn btn-dark "><i
+                        class="fa fa-user-lock"></i></a>';
                             return $btn;
                     })
                     ->rawColumns(['action'])

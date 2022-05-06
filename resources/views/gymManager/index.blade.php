@@ -95,5 +95,26 @@ $(function() {
         ]
     });
 });
+
+function banUser(id) {
+        if (confirm("Do you want to ban this user?")) {
+            console.log(id)
+            $.ajax({
+
+                    url: '/banUser/' + id,
+                    type: 'get',
+                    data: {
+                        _token: $("input[name=_token]").val()
+                    }
+
+                    ,
+                    success: function(response) {
+                        $("#did" + id).remove();
+                    }
+                }
+
+            );
+        }
+    }
 </script>
 @endsection
