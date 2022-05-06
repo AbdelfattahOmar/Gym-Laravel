@@ -150,58 +150,161 @@
                         </li>
                         <li class="nav-item">
 
-                         
-                     </ul>
-                 </li>
-                 <!-- end of training sessions -->
-                 <!-- Attendance Table -->
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fas fa-book"></i>
-                         <p>
-                             Attendance table.
-                         </p>
-                     </a>
-                 </li>
-                 <!-- End of attendance table -->
-                 <!-- Banned Users -->
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fa fa-user-lock"></i>
-                         <p>
-                             Banned users.
-                         </p>
-                     </a>
-                 </li>
-                 <!-- End of banned users. -->
-                 <!-- logout  -->
-                 <li class="nav-item">
-                    <hr style="color: white">
-                    
-                       <li class="nav-item">
-                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
-                                 Logout 
-                           
-                         </li> 
+                            <a href="{{ route('gymManager.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add new gym manager.</p>
+                            </a>
+                        </li>
                     </ul>
-          
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                   @csrf
-               </form>
-            </nav>
-         </li> 
-                
-             </ul>
-         </nav>
-         <!-- /.sidebar-menu -->
-     </div>
-     @endrole
-     <!-- /.sidebar -->
- </aside>
- 
+                </li>
+                @endrole
+                <!-- End of gym managers. -->
+                <!-- Coaches -->
+                @role('admin|cityManager|gymManager')
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-ninja"></i>
+                        <p>
+                            Coaches.
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('coaches.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List coaches.</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('coaches.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add a new coach.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
+                <!-- End of coaches -->
+                <!-- users -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Users.
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('users.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List Users.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End of users -->
+                <!-- Training packages -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cubes"></i>
+                        <p>
+                            Training packages.
+                            <i class="fas fa-angle-left right"></i>
+
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('trainingPackeges.listPackeges') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List packages.</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('trainingPackeges.creatPackege') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add a new package.</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Buy a package.</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Purchases history.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end of training packages -->
+                <!-- training sessions -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cube"></i>
+                        <p>
+                            Training sessions.
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('trainingSession.listSessions') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List sessions.</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('trainingSession.training_session') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add a new session.</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <!-- end of training sessions -->
+                <!-- Attendance Table -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Attendance table.
+                        </p>
+                    </a>
+                </li>
+                <!-- End of attendance table -->
+                <!-- Banned Users -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-user-lock"></i>
+                        <p>
+                            Banned users.
+                        </p>
+                    </a>
+                </li>
+                <!-- End of banned users. -->
+                <!-- logout / maybe added to -->
+                <hr style="color: white">
+                <ul>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            <i class="fa-solid fa-right-from-bracket fs-6"></i>
+                            Logout
+
+                    </li>
+                </ul>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
         </nav>
         <!-- /.sidebar-menu -->
     </div>
