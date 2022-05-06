@@ -58,16 +58,16 @@
                                 </a>
 
 <<<<<<< HEAD
+                                <a href="javascript:void(0)" onclick="deletecityManager({{ $user->id }})"
+                                    class="btn btn-danger fw-bold mr-2">Delete</a>
+=======
         
                                     <form action="{{route ('cityManager.delete',['id' => $user['id']]) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button onClick="if(!confirm('Is the form filled out correctly?')){return false;}" type="submit" class="btn btn-danger mr-2">Delete</button>
                                         </form>
-=======
-                                <a href="javascript:void(0)" onclick="deletecityManager({{ $user->id }})"
-                                    class="btn btn-danger fw-bold mr-2">Delete</a>
->>>>>>> 9090dc871789e802640c1db5622891cf4756d350
+>>>>>>> b53066bc52d99936c7bb629fa983e7067372309c
 
                                 <a href="javascript:void(0)" onclick="banUser({{ $user->id }})" class="btn btn-dark "><i
                                         class="fa fa-user-lock"></i></a>
@@ -84,18 +84,13 @@
 
     </section>
 </div>
-<<<<<<< HEAD
-<!-- <div class="text-center">
-    {{ $users->links() }}
+{{ $users->links() }}
 </div>
 <style>
 svg {
     width: 35px;
 }
 </style> -->
-=======
-
-<<<<<<< HEAD
 <div class="text-center">
     {{ $users->links() }}
 </div>
@@ -104,10 +99,7 @@ svg {
     width: 35px;
 }
 </style>
-=======
 
->>>>>>> 47399b051d1bd613a05b1c265bf26982fccd205c
->>>>>>> 9090dc871789e802640c1db5622891cf4756d350
 < !-- /.content-wrapper -->
     <script>
     function banUser(id) {
@@ -130,6 +122,4 @@ svg {
             );
         }
     }
-
- 
     </script>@endsection

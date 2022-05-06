@@ -57,11 +57,14 @@
                             @endif
                             <td class="project-state">{{ $city->created_at->format('d - M - Y') }}</td>
                             <td class="project-actions project-state">
-                                <a class="btn btn-info btn-sm" href="{{ route('city.show', $city->id) }}">
-                                    <i class="fa fa-eye"></i>
+                                <a class="btn btn-success fw-bold mr-2" href=" {{ route('city.show', $city->id) }}">
+
+                                    View
                                 </a>
-                                <a class="btn btn-warning btn-sm text-white" href="{{ route('city.edit', $city->id) }}">
-                                    <i class="fas fa-pencil-alt"></i></a>
+                                <a style="color:#fff" class="btn btn-info fw-bold mr-2"
+                                    href="{{ route('city.edit', $city->id) }}">
+                                    Edit
+                                </a>
 
                                 <form action="{{ route('city.destroy',['id' => $city['id']]) }}" method="POST"
                                     class="d-inline">
