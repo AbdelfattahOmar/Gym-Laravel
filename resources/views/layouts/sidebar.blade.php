@@ -48,6 +48,7 @@
                      </a>
                  </li>
                  <!-- Cities  -->
+                 @role('admin')
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-city"></i>
@@ -57,6 +58,7 @@
 
                          </p>
                      </a>
+                 
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
                              <a href="{{ route('city.index') }}" class="nav-link">
@@ -73,8 +75,10 @@
 
                      </ul>
                  </li>
+                 @endrole
                  <!-- End of Cities -->
                  <!-- City managers -->
+                 @role('admin')
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-user"></i>
@@ -85,21 +89,23 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="/cityManager/list" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List cities managers.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="/cityManager/create" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add new city manager.</p>
                              </a>
                          </li>
                      </ul>
                  </li>
+                 @endrole
                  <!-- End of city managers -->
                  <!-- Gyms -->
+                 @role('admin|cityManager')
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-dumbbell"></i>
@@ -111,21 +117,23 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="/gym/list" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List gyms.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="/gym/create" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add new gym.</p>
                              </a>
                          </li>
                      </ul>
                  </li>
+                 @endrole
                  <!-- End of Gyms -->
                  <!-- Gym managers. -->
+                 @role('admin|cityManager')
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-dumbbell"></i>
@@ -151,8 +159,10 @@
                          </li>
                      </ul>
                  </li>
+                 @endrole
                  <!-- End of gym managers. -->
                  <!-- Coaches -->
+                 @role('admin|cityManager|gymManager')
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-user-ninja"></i>
@@ -176,6 +186,7 @@
                          </li>
                      </ul>
                  </li>
+                 
                  <!-- End of coaches -->
                  <!-- users -->
                  <li class="nav-item">
@@ -282,20 +293,25 @@
                  </li>
                  <!-- End of banned users. -->
                  <!-- logout / maybe added to -->
-                 <!-- <li class="nav-item">
-           <a href="#" class="nav-link">
-             <i class="nav-icon fa fa-user-lock"></i>
-             <p>
-               Logout.
-               <i class="fas fa-angle-left right">
-             </p>
-           </a>
-         </li> -->
-                 <!-- logout -->
-             </ul>
+                 <hr style="color: white">
+                 <ul>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                              <i class="fa-solid fa-right-from-bracket fs-6"></i> 
+                              Logout 
+                        
+                      </li> 
+                 </ul>
+       
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
          </nav>
          <!-- /.sidebar-menu -->
      </div>
      <!-- /.sidebar -->
+     @endrole
  </aside>
+
 

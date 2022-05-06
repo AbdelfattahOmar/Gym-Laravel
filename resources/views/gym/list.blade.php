@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -64,14 +64,14 @@
                                         <img alt="Avatar" class="table-avatar" src="{{ $gym->cover_image }}">
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-info btn-sm" href="{{ route('gym.show', $gym['id']) }}">
-                                            <i class="fa fa-eye"></i>
+                                        <a class="btn btn-success btn-sm" href="{{ route('gym.show', $gym['id']) }}">
+                                          View
                                         </a>
-                                        <a class="btn btn-warning btn-sm text-white"
+                                        <a class="btn btn-info btn-sm text-white"
                                             href="{{ route('gym.edit', $gym['id']) }}">
-                                            <i class="fas fa-pencil-alt"></i></a>
+                                        Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteGym({{ $gym->id }})"
-                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                            class="btn btn-danger btn-sm">Delete</a>
                                     </td>
 
 
@@ -93,7 +93,7 @@
 
     <script>
         function deleteGym(id) {
-            if (confirm("Do you want to delete this record?")) {
+            if (confirm("Do you want to delete this gym?")) {
                 $.ajax({
                     url: '/gym/' + id,
                     type: 'DELETE',

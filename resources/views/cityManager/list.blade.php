@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -25,14 +25,6 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Projects</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-striped projects" id="proj">
@@ -43,7 +35,7 @@
                                 <th class="project-state">Email</th>
                                 <th class="project-state">Profile Picture</th>
                                 <th class="project-state">National ID</th>
-                                <th class="project-state"></th>
+                                <th class="project-state">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,23 +44,24 @@
                                     <td class="project-state">{{ $user->id }}</td>
                                     <td class="project-state">{{ $user->name }} </td>
                                     <td class="project-state">{{ $user->email }} </td>
-                                    <td class="project-state"><img alt="Avatar" class="table-avatar"
+                                    <td class="project-state"><img alt="Avatar" style="width:50px"
                                             src="{{ asset($user->profile_image) }}"></td>
                                     <td class="project-state">{{ $user->national_id }} </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-info btn-sm"
+                                        <a class="btn btn-success fw-bold mr-2 ml-5"
                                             href="{{ route('cityManager.show', $user['id']) }}">
-                                            <i class="fa fa-eye"></i>
+                                            View
                                         </a>
-                                        <a class="btn btn-warning btn-sm text-white"
+                                        <a class="btn btn-info fw-bold mr-2 text-white"
                                             href="{{ route('cityManager.edit', $user['id']) }}">
-                                            <i class="fas fa-pencil-alt"></i></a>
+                                            Edit    
+                                        </a>
 
                                         <a href="javascript:void(0)" onclick="deletecityManager({{ $user->id }})"
-                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                            class="btn btn-danger fw-bold mr-2">Delete</a>
 
                                         <a href="javascript:void(0)" onclick="banUser({{ $user->id }})"
-                                            class="btn btn-dark btn-sm"><i class="fa fa-user-lock"></i></a>
+                                            class="btn btn-dark "><i class="fa fa-user-lock"></i></a>
 
                                     </td>
                                 </tr>
