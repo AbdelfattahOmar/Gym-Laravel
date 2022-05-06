@@ -57,8 +57,7 @@
                                     Edit
                                 </a>
 
-                                <a href="{{ route('cityManager.delete', $user['id']) }}"
-                                    onclick="deletecityManager({{ $user->id }})"
+                                <a href="javascript:void(0)" onclick="deletecityManager({{ $user->id }})"
                                     class="btn btn-danger fw-bold mr-2">Delete</a>
 
                                 <a href="javascript:void(0)" onclick="banUser({{ $user->id }})" class="btn btn-dark "><i
@@ -76,7 +75,14 @@
 
     </section>
 </div>
-
+<!-- <div class="text-center">
+    {{ $users->links() }}
+</div>
+<style>
+svg {
+    width: 35px;
+}
+</style> -->
 < !-- /.content-wrapper -->
     <script>
     function banUser(id) {

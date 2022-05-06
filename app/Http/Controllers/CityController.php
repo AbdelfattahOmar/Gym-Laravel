@@ -120,8 +120,17 @@ class CityController extends Controller
     public function destroy($cityID)
     {
         $city = City::find($cityID);
+        $manager = $city->manager_id;
+
+        if($manager != null) {
+            return redirect()->back()->with('alert', 'Updated!');
+            
+        }else {
+            $city->users()->detach();
+            $city->delete();
+        }
         $city->delete($cityID);
-        return $this->list();
+        return to_route('city.index'); 
     }
     #=======================================================================================#
     #			                 restored deleted Cities Function                           #

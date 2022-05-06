@@ -44,7 +44,7 @@ Route::post('/city', [CityController::class, 'store'])->name('city.store')->midd
 Route::get('/city/{cityID}', [CityController::class, 'show'])->name('city.show')->middleware('auth')->middleware('role:admin');
 Route::get('/city/{cityID}/edit', [CityController::class, 'edit'])->name('city.edit')->middleware('auth')->middleware('role:admin');
 Route::put('/city/{cityID}', [CityController::class, 'update'])->name('city.update')->middleware('auth')->middleware('role:admin');
-Route::delete('/city/{cityID}', [CityController::class, 'destroy'])->name('city.destroy')->middleware('auth')->middleware('role:admin');
+Route::delete('/city/{id}', [CityController::class, 'destroy'])->name('city.destroy')->middleware('auth')->middleware('role:admin');
 Route::get('/restoredCities', [CityController::class, 'showDeleted'])->name('city.showDeleted')->middleware('auth')->middleware('role:admin');
 Route::get('/restoredCities/{postID}', [CityController::class, 'restore'])->name('city.restored')->middleware('auth')->middleware('role:admin');
 
