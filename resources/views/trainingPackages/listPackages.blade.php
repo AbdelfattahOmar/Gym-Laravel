@@ -64,7 +64,7 @@
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a class="btn btn-warning btn-sm text-white"
-                                            href="#">
+                                            href="{{ route('trainingPackeges.editPackege', $package['id']) }}">
                                             <i class="fas fa-pencil-alt"></i></a>
                                         <a href="#" class="btn btn-info btn-sm">Buy
                                         </a>
