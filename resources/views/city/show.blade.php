@@ -33,7 +33,6 @@
                     <tbody>
 
                         <tr>
-
                             <td class="project-state text-center">{{$cityData->id}}</td>
                             <td class="project-state text-center">{{$cityData->name}}</td>
                             @if ($citiesManagers == null)
