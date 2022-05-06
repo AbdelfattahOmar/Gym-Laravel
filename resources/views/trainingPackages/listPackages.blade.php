@@ -69,7 +69,7 @@
                                         <a href="#" class="btn btn-info btn-sm">Buy
                                         </a>
                                         @role('admin')
-                                            <a href="javascript:void(0)" onclick="deletePackage({{ $package->id }})"
+                                            <a href="javascript:void(0)" onclick="deletePackage({{ $package->id }});"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                         @endrole
 
@@ -91,7 +91,7 @@
         function deletePackage(id) {
             if (confirm("Do you want to delete this record?")) {
                 $.ajax({
-                    url: '/trainingPackeges/' + id,
+                    url: '/trainingPackages/' + id,
                     type: 'DELETE',
                     data: {
                         _token: $("input[name=_token]").val()

@@ -25,4 +25,11 @@ class TrainingPackagesController extends Controller
         $package = TrainingPackage::findorfail($id);
         return view('trainingPackages.show_training_package', ['package' => $package]);
     }
+
+    public function deletePackage($id)
+    {
+        $package = TrainingPackage::findorfail($id);
+        $package->delete();
+        return response()->json(['success' => 'Record deleted successfully!']);
+    }
 }
