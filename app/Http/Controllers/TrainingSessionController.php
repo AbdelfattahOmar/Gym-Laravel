@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\TrainingSession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\DataTables\SessionDataTable;
 use App\Models\User;
 
 use DataTables;
 
 class TrainingSessionController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $trainingSessions = TrainingSession::all();
        
