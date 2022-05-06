@@ -25,16 +25,16 @@ use App\Http\Controllers\AttendanceController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home')->middleware('auth');
+})->name('home')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 
 Route::get('/home', function () {
     return view('welcome');
-})->name('home')->middleware('auth');
+})->name('home')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
 // user routes
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update')->middleware('role:admin|cityManager|gymManager');
 Route::delete('/user/{id}', [UserController::class, 'delete'])->name('user.delete')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
@@ -118,13 +118,13 @@ Route::get('/register', [ErrorController::class, 'unAuth'])->name('500');
 
 // Packages Routes
 
-Route::get('/trainingPackages/create_package', [TrainingPackagesController::class, 'create'])->name('trainingPackeges.creatPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::post('/trainingPackages/package', [TrainingPackagesController::class, 'store'])->name('trainingPackeges.store')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/trainingPackages/create_package', [TrainingPackagesController::class, 'create'])->name('trainingPackeges.creatPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::post('/trainingPackages/package', [TrainingPackagesController::class, 'store'])->name('trainingPackeges.store')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::get('/trainingPackages/index', [TrainingPackagesController::class, 'index'])->name('trainingPackeges.listPackeges')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
-Route::get('/trainingPackages/package/{session}', [TrainingPackagesController::class, 'show'])->name('trainingPackeges.show_training_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::delete('/trainingPackages/{package}  ', [TrainingPackagesController::class, 'destroy'])->name('trainingPackeges.delete_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::get('/trainingPackages/{package}/edit', [TrainingPackagesController::class, 'edit'])->name('trainingPackeges.editPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
-Route::put('/trainingPackages/{package}', [TrainingPackagesController::class, 'update'])->name('trainingPackeges.update_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin');
+Route::get('/trainingPackages/package/{session}', [TrainingPackagesController::class, 'show'])->name('trainingPackeges.show_training_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::delete('/trainingPackages/{package}  ', [TrainingPackagesController::class, 'destroy'])->name('trainingPackeges.delete_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::get('/trainingPackages/{package}/edit', [TrainingPackagesController::class, 'edit'])->name('trainingPackeges.editPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::put('/trainingPackages/{package}', [TrainingPackagesController::class, 'update'])->name('trainingPackeges.update_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 
 
 //buy package
@@ -132,8 +132,11 @@ Route::put('/trainingPackages/{package}', [TrainingPackagesController::class, 'u
 Route::get('/PaymentPackage/stripe', [StripeController::class, 'stripe'])->name('PaymentPackage.stripe')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager|coach');
 Route::post('/PaymentPackage/stripe', [StripeController::class, 'stripePost'])->name('stripe.post')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager|coach');
 Route::get('/PaymentPackage/purchase_history', [StripeController::class, 'index'])->name('PaymentPackage.purchase_history')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager|coach');
+<<<<<<< HEAD
 
 // ban user
 Route::get('/banUser/{userID}', [UserController::class, 'banUser'])->name('user.banUser')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::get('/listBanned', [UserController::class, 'listBanned'])->name('user.listBanned')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::PATCH('/unBan/{userID}', [UserController::class, 'unBan'])->name('user.unBan')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+=======
+>>>>>>> c51f2e50dbce2e086ca2ae5aee808ed42239778e
