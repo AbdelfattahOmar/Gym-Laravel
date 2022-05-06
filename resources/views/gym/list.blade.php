@@ -25,14 +25,6 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Gyms</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-striped projects" id="proj">
@@ -43,7 +35,7 @@
                                 <th class="project-state">Gym City</th>
                                 <th class="project-state">Created at</th>
                                 <th class="project-state">Gyms Cover Image</th>
-                                <th></th>
+                                <th class="project-state text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,17 +53,17 @@
                                     </td>
                                     <td class="project-state">{{ $gym->created_at->format('d - M - Y') }}</td>
                                     <td class="project-state">
-                                        <img alt="Avatar" class="table-avatar" src="{{ $gym->cover_image }}">
+                                        <img alt="Avatar" style="width:50px" src="{{ asset($gym->cover_image) }}">
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-success btn-sm" href="{{ route('gym.show', $gym['id']) }}">
+                                        <a class="btn btn-success fw-bold mr-2" href="{{ route('gym.show', $gym['id']) }}">
                                           View
                                         </a>
-                                        <a class="btn btn-info btn-sm text-white"
+                                        <a class="btn btn-info fw-bold mr-2 text-white"
                                             href="{{ route('gym.edit', $gym['id']) }}">
                                         Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteGym({{ $gym->id }})"
-                                            class="btn btn-danger btn-sm">Delete</a>
+                                            class="btn btn-danger fw-bold mr-2">Delete</a>
                                     </td>
 
 
