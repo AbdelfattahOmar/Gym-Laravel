@@ -18,9 +18,8 @@ class CoachController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="/gymManager/show/' . $row->id . '" class="btn btn-success fw-bold mr-2">View</a>';
-                    $btn .= '<a href="/gymManager/' . $row->id . '/edit" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
-                    // $btn .= '<button class="deleteRecord" data-id="'.$row->id.'" >Delete</button>';
+                    $btn = '<a href="/coach/show/' . $row->id . '" class="btn btn-success fw-bold mr-2">View</a>';
+                    $btn .= '<a href="/coach/' . $row->id . '/edit" style="color:#fff" class="btn btn-info fw-bold mr-2">Edit</a>';
                     $btn .= '<form action="' . $row->id . '" method="POST" class="d-inline">
                         <input type="hidden" name="_token" value="' . csrf_token() . '" />
                         <input type="hidden" name="_method" value="delete" />
@@ -66,6 +65,12 @@ class CoachController extends Controller
         $user->save();
         return to_route('coaches.index');
 
+    }
+    public function show($id){
+        $coach = User::find($id);
+        return view('coach.show' , [
+            'coach' => $coach
+        ]);
     }
 
 }
