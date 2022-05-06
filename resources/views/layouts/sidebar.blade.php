@@ -73,10 +73,10 @@
 
                     </ul>
                 </li>
-                @endrole
+    
                 <!-- End of Cities -->
                 <!-- City managers -->
-                @role('admin')
+        
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -128,10 +128,10 @@
                         </li>
                     </ul>
                 </li>
-                @endrole
+            
                 <!-- End of Gyms -->
                 <!-- Gym managers. -->
-                @role('admin|cityManager')
+                
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-dumbbell"></i>
@@ -158,42 +158,8 @@
                          
                      </ul>
                  </li>
-                 <!-- end of training sessions -->
-                 <!-- Attendance Table -->
-                 <li class="nav-item">
-                     <a href="{{ route('attendance') }}" class="nav-link">
-                         <i class="nav-icon fas fa-book"></i>
-                         <p>
-                             Attendance table.
-                         </p>
-                     </a>
-                 </li>
-                 <!-- End of attendance table -->
-                 <!-- Banned Users -->
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fa fa-user-lock"></i>
-                         <p>
-                             Banned users.
-                         </p>
-                     </a>
-                 </li>
-                 <!-- End of banned users. -->
-                 <!-- logout  -->
-                 <li class="nav-item">
-                    <hr style="color: white">
-                    
-                       <li class="nav-item">
-                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
-                                 Logout 
-                           
-                         </li> 
-                    </ul>
-                </li>
-                @endrole
-                <!-- End of gym managers. -->
+                 @endrole
+                 <!-- End of gym managers. -->
                 <!-- Coaches -->
                 @role('admin|cityManager|gymManager')
                 <li class="nav-item">
@@ -325,24 +291,28 @@
                     </a>
                 </li>
                 <!-- End of banned users. -->
-                <!-- logout / maybe added to -->
-                <hr style="color: white">
-                <ul>
-                    <li class="nav-item">
-                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                            <i class="fa-solid fa-right-from-bracket fs-6"></i>
-                            Logout
-
-                    </li>
-                </ul>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+                
+                 <!-- logout  -->
+                 <li class="nav-item">
+                    <hr style="color: white">
+                    
+                       <li class="nav-item">
+                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
+                                 Logout 
+                            </li> 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                    </ul>
+                </li>
+                @endrole
+                
+               
         </nav>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-    @endrole
+
 </aside>
