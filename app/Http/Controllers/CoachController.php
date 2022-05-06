@@ -72,5 +72,41 @@ class CoachController extends Controller
             'coach' => $coach
         ]);
     }
+    public function edit($id)
+    {
+        $coach = User::find($id);
+        return view('coach.edit', [
+            'coach' => $coach
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $validated = $request->validate([
+            'name' => 'required|max:20',
+            'password' => 'required |min:8',
+            'email' => 'required|string|unique:users,email,' . $user->id,
+            'national_id' => 'digits_between:10,17|numeric|unique:users,national_id,' . $user->id,
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
+        ]);
+
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->email = $request->email;
+        $user->national_id = $request->national_id;
+
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $name = time() . \Str::random(30) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/imgs');
+            $image->move($destinationPath, $name);
+            $imageName = 'imgs/' . $name;
+            $user->profile_image = $imageName;
+        }
+        $user->save();
+        
+        return to_route('coaches.index');
+    }
 
 }
