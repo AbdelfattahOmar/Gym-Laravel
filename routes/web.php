@@ -101,8 +101,9 @@ Route::get('/coach/index', [CoachController::class, 'index'])->name('coaches.ind
 Route::get('/coach/create', [CoachController::class, 'create'])->name('coaches.create')->middleware('auth');
 Route::post('/coach/store', [CoachController::class, 'store'])->name('coaches.store')->middleware('auth');
 Route::get('/coach/show/{id}',[CoachController::class, 'show'])->name('coaches.show')->middleware('auth');
-Route::get('/coach/{id}/edit', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth');
+Route::get('/coach/edit/{id}', [CoachController::class, 'edit'])->name('coaches.edit')->middleware('auth');
 Route::put('/coach/{id}', [CoachController::class, 'update'])->name('coaches.update');
+Route::delete('/coach/{id}', [CoachController::class, 'delete'])->name('coaches.delete')->middleware('auth');
 
 
 Auth::routes();
