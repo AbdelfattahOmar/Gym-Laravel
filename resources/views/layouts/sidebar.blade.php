@@ -12,10 +12,14 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
+            @if (Auth::user()->profile_image == null)
+                <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
+            @else
                 <img src="{{ asset(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image">
+            @endif    
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <p href="#" class="fw-bold text-white d-block">{{ Auth::user()->name }}</p>
             </div>
         </div>
 
@@ -37,7 +41,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('home') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard.
@@ -229,13 +233,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{ route('PaymentPackage.stripe') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Buy a package.</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{ route('PaymentPackage.purchase_history') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Purchases history.</p>
                             </a>
@@ -290,22 +294,7 @@
                     </a>
                 </li>
                 <!-- End of banned users. -->
-                
-                 <!-- logout  -->
-                 <li class="nav-item">
-                    <hr style="color: white">
-                    
-                       <li class="nav-item">
-                           <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                                 <i class="fa-solid fa-right-from-bracket fs-6"></i> 
-                                 Logout 
-                            </li> 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                    </ul>
-                </li>
+                       
                 @endrole
                 
                

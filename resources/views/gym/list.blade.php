@@ -81,8 +81,15 @@
 
         </section>
     </div>
+    <div class="text-center">
+        {{ $gyms->links() }}
+    </div>
+    <style>
+    svg {
+        width: 35px;
+    }
+    </style>
     <!-- /.content-wrapper -->
-
     <script>
         function deleteGym(id) {
             if (confirm("Do you want to delete this gym?")) {

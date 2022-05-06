@@ -75,6 +75,7 @@
 
     </section>
 </div>
+<<<<<<< HEAD
 <!-- <div class="text-center">
     {{ $users->links() }}
 </div>
@@ -83,6 +84,10 @@ svg {
     width: 35px;
 }
 </style> -->
+=======
+
+
+>>>>>>> 47399b051d1bd613a05b1c265bf26982fccd205c
 < !-- /.content-wrapper -->
     <script>
     function banUser(id) {
