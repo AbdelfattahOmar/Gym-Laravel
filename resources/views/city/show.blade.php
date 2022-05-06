@@ -33,18 +33,17 @@
                     <tbody>
 
                         <tr>
-                            @if ($citiesManagers == null)
-                            <figure class="mt-5">
-                                <i class="fas fa-user-tie" style="font-size: 100px !important"></i>
-                                <h3>This city have no city manager <sup style="font-size: 20px"></sup></h3>
-                            </figure>
-                            @else
 
                             <td class="project-state text-center">{{$cityData->id}}</td>
                             <td class="project-state text-center">{{$cityData->name}}</td>
-                            <td class="project-state text-center">{{$citiesManagers->name}} </td>
+                            @if ($citiesManagers == null)
+                            <td class="project-state text-center">This city has no Manager</td>
+                            <td class="project-state text-center">This city has no Manager </td>
+                            @else
+                            <td class="project-state text-center">{{$citiesManagers->name}}</td>
                             <td class="project-state text-center">{{$citiesManagers->email}} </td>
                             @endif
+
                         </tr>
                     </tbody>
                     <tbody>

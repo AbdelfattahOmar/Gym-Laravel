@@ -65,7 +65,7 @@ class CityController extends Controller
         } else {
             City::create($requestData);
         }
-        return $this->list();
+        return to_route('city.index'); 
     }
     
     public function edit($cityID)
@@ -91,16 +91,13 @@ class CityController extends Controller
     public function destroy($cityID)
     {
         $city = City::find($cityID);
-        $manager = $city->manager_id;
-
+        $manager = $city->manager;
         if($manager != null) {
             return redirect()->back()->with('alert', 'Updated!');
-            
-        }else {
-            $city->users()->detach();
-            $city->delete();
         }
-        $city->delete($cityID);
+
+        $city->delete();     
+
         return to_route('city.index'); 
     }
 
@@ -111,5 +108,14 @@ class CityController extends Controller
         City::withTrashed()->find($cityID)->restore();
         return $this->showDeleted();
     }
-
+    
+    private function selectCityManagers()
+    {
+        return User::select('users.*', 'cities.manager_id')
+            ->role('cityManager')
+            ->withoutBanned()
+            ->leftJoin('cities', 'users.id', '=', 'cities.manager_id')
+            ->whereNull('cities.manager_id')
+            ->get();
+    }
 }

@@ -57,17 +57,14 @@
                                     Edit
                                 </a>
 
-<<<<<<< HEAD
-                                <a href="javascript:void(0)" onclick="deletecityManager({{ $user->id }})"
-                                    class="btn btn-danger fw-bold mr-2">Delete</a>
-=======
-        
-                                    <form action="{{route ('cityManager.delete',['id' => $user['id']]) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button onClick="if(!confirm('Is the form filled out correctly?')){return false;}" type="submit" class="btn btn-danger mr-2">Delete</button>
-                                        </form>
->>>>>>> b53066bc52d99936c7bb629fa983e7067372309c
+
+                                <form action="{{route ('cityManager.delete',['id' => $user['id']]) }}" method="POST"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onClick="if(!confirm('Is the form filled out correctly?')){return false;}"
+                                        type="submit" class="btn btn-danger mr-2">Delete</button>
+                                </form>
 
                                 <a href="javascript:void(0)" onclick="banUser({{ $user->id }})" class="btn btn-dark "><i
                                         class="fa fa-user-lock"></i></a>
