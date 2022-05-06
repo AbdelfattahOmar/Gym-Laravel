@@ -263,7 +263,7 @@
                  <!-- end of training sessions -->
                  <!-- Attendance Table -->
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="{{ route('attendance') }}" class="nav-link">
                          <i class="nav-icon fas fa-book"></i>
                          <p>
                              Attendance table.
