@@ -57,9 +57,12 @@
                                     Edit
                                 </a>
 
-                                <a href="{{ route('cityManager.delete', $user['id']) }}"
-                                    onclick="deletecityManager({{ $user->id }})"
-                                    class="btn btn-danger fw-bold mr-2">Delete</a>
+        
+                                    <form action="{{route ('cityManager.delete',['id' => $user['id']]) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onClick="if(!confirm('Is the form filled out correctly?')){return false;}" type="submit" class="btn btn-danger mr-2">Delete</button>
+                                        </form>
 
                                 <a href="javascript:void(0)" onclick="banUser({{ $user->id }})" class="btn btn-dark "><i
                                         class="fa fa-user-lock"></i></a>
@@ -77,11 +80,19 @@
     </section>
 </div>
 
-
+<div class="text-center">
+    {{ $users->links() }}
+</div>
+<style>
+svg {
+    width: 35px;
+}
+</style>
 < !-- /.content-wrapper -->
     <script>
     function banUser(id) {
         if (confirm("Do you want to ban this user?")) {
+            console.log(id)
             $.ajax({
 
                     url: '/banUser/' + id,
@@ -100,23 +111,5 @@
         }
     }
 
-    function deletecityManager(id) {
-        if (confirm("Do you want to delete this record?")) {
-            $.ajax({
-
-                    url: '/allUsers/' + id,
-                    type: 'DELETE',
-                    data: {
-                        _token: $("input[name=_token]").val()
-                    }
-
-                    ,
-                    success: function(response) {
-                        $("#did" + id).remove();
-                    }
-                }
-
-            );
-        }
-    }
+ 
     </script>@endsection

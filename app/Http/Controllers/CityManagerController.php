@@ -16,7 +16,7 @@ class CityManagerController extends Controller
 
     public function list()
     {
-        $users =  User::role('cityManager')->withoutBanned()->get(); 
+        $users =  User::role('cityManager')->withoutBanned()->paginate(10);
         if (count($users) <= 0) { //for empty statement
             return view('empty');
         }
@@ -120,6 +120,6 @@ class CityManagerController extends Controller
 
         $singleUser = User::findorfail($id);
         $singleUser->delete();
-        return redirect()->route('cityManager.list');
+        return to_route('cityManager.list');
     }
 }
