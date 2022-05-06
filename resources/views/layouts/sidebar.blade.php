@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('home')}}" class="brand-link">
         <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">GYM system</span>
@@ -12,26 +12,14 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-            @if (Auth::user()->profile_image == null)
+                @if (Auth::user()->profile_image == null)
                 <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
-            @else
+                @else
                 <img src="{{ asset(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image">
-            @endif    
+                @endif
             </div>
             <div class="info">
                 <p href="#" class="fw-bold text-white d-block">{{ Auth::user()->name }}</p>
-            </div>
-        </div>
-
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
             </div>
         </div>
 
@@ -77,10 +65,10 @@
 
                     </ul>
                 </li>
-    
+
                 <!-- End of Cities -->
                 <!-- City managers -->
-        
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -132,10 +120,10 @@
                         </li>
                     </ul>
                 </li>
-            
+
                 <!-- End of Gyms -->
                 <!-- Gym managers. -->
-                
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-dumbbell"></i>
@@ -159,11 +147,11 @@
                                 <p>Add new gym manager.</p>
                             </a>
                         </li>
-                         
-                     </ul>
-                 </li>
-                 @endrole
-                 <!-- End of gym managers. -->
+
+                    </ul>
+                </li>
+                @endrole
+                <!-- End of gym managers. -->
                 <!-- Coaches -->
                 @role('admin|cityManager|gymManager')
                 <li class="nav-item">
@@ -294,10 +282,10 @@
                     </a>
                 </li>
                 <!-- End of banned users. -->
-                       
+
                 @endrole
-                
-               
+
+
         </nav>
         <!-- /.sidebar-menu -->
     </div>

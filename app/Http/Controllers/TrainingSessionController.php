@@ -13,7 +13,7 @@ class TrainingSessionController extends Controller
 {
     public function index()
     {
-        $trainingSessions = TrainingSession::all();
+        $trainingSessions = TrainingSession::paginate(10);
        
         return view('trainingSession.listSessions', ['trainingSessions' => $trainingSessions]);   
     }
