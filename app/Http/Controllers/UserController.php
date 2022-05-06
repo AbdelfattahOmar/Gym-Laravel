@@ -2,39 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DataTables;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StoreRequest;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Str;
+use App\Http\Requests\StoreRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
-use DataTables;
-
-
-
 
 class UserController extends Controller
 {
-
-  
     public function index(Request $request)
     {
         if ($request->ajax()) {
             $data = User::select('*');
+            
             return Datatables::of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){     
+                ->addIndexColumn()
+                ->addColumn('action', function($row){     
      
-                        $btn = '<a href="/user/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
-                        $btn .= '<a href="/user/'.$row->id.'/edit-profile" class="edit btn btn-info btn-sm">Edit</a>';
-                        $btn .= '<a href="/user/'.$row->id.'" class="edit btn btn-danger btn-sm">Delete</a>';
-     
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
+                    $btn = '<a href="/user/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
+                    $btn .= '<a href="/user/'.$row->id.'/edit-profile" class="edit btn btn-info btn-sm">Edit</a>';
+                    $btn .= '<a href="/user/'.$row->id.'" class="edit btn btn-danger btn-sm">Delete</a>';
+    
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
         }
         
         return view('user.index');

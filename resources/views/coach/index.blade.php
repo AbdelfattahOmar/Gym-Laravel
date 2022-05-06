@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
 <div class="content-wrapper">
@@ -8,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>All coaches</h1>
+                    <h1>All Coaches</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">coaches</li>
+                        <li class="breadcrumb-item active">Coaches</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +23,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Cities</h3>
+                <h3 class="card-title">coach</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -41,11 +40,13 @@
                             <th class="project-state"> ID </th>
                             <th class="project-state"> Name</th>
                             <th class="project-state"> Email</th>
+                            <th  class="project-state">profile_image</th>
+                            <th  class="project-state">national_id</th>
                             <th class="project-state"> Action</th>
-                            <th class="project-state"></th>
                         </tr>
                     </thead>
                     <tbody>
+                  
                     </tbody>
                 </table>
             </div>
@@ -60,12 +61,13 @@
 
 @section('scripts')
 <script type="text/javascript">
+    
 $(function() {
 
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.index') }}",
+        ajax: "{{ route('coaches.index') }}",
         columns: [{
                 data: 'id',
                 name: 'id'
@@ -79,6 +81,17 @@ $(function() {
                 name: 'email'
             },
             {
+                data: 'profile_image',
+                name: 'profile_image',
+                render: function( data, type, full, meta ) {
+                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data ) + "\" width=\"50\"/>";
+                }
+            },
+            {
+                data: 'national_id',
+                name: 'national_id'
+            },
+            {
                 data: 'action',
                 name: 'action',
                 orderable: false,
@@ -86,7 +99,6 @@ $(function() {
             },
         ]
     });
-
 });
 </script>
 @endsection
