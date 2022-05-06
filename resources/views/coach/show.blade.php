@@ -30,21 +30,21 @@
                 <table class="table table-striped data-table" id="proj">
                     <thead>
                         <tr>
-                            <th class="project-state">ID</th>
-                            <th class="project-state">Name</th>
-                            <th class="project-state">Email</th>
-                            <th class="project-state">Profile Picture</th>
-                            <th class="project-state">National ID</th>
+                            <th class="project-state text-center">ID</th>
+                            <th class="project-state text-center">Name</th>
+                            <th class="project-state text-center">Email</th>
+                            <th class="project-state text-center">Profile Picture</th>
+                            <th class="project-state text-center">National ID</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="project-state">{{$coach->id}}</td>
-                            <td class="project-state">{{$coach->name}}</td>
-                            <td class="project-state">{{$coach->email}}</td>
-                            <td class="project-state">
+                            <td class="project-state text-center">{{$coach->id}}</td>
+                            <td class="project-state text-center">{{$coach->name}}</td>
+                            <td class="project-state text-center">{{$coach->email}}</td>
+                            <td class="project-state text-center">
                                 <img alt="Avatar" class="table-avatar" style="width:50px" src="{{ asset($coach->profile_image) }}"></td>
-                            <td class="project-state">{{$coach->national_id}}</td>
+                            <td class="project-state text-center">{{$coach->national_id}}</td>
                             
                         </tr>
                         

@@ -42,7 +42,7 @@
                             <th class="project-state"> Email</th>
                             <th  class="project-state">profile_image</th>
                             <th  class="project-state">national_id</th>
-                            <th class="project-state"> Action</th>
+                            <th class="project-state text-center"> Action</th>
                         </tr>
                     </thead>
                     <tbody>
