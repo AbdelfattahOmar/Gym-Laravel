@@ -85,4 +85,6 @@ class User extends Authenticatable implements MustVerifyEmail, BannableContract
             return 'avatar.png';
         }
     }
+
+
 }

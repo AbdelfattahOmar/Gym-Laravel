@@ -1,30 +1,63 @@
 @extends('layouts.app')
 @section('content')
-<div class="content-wrapper pb-4">
-    <div class="container-fluid pt-5">
-        <div class="row align-self-center d-flex">
-            <div class="col-6 bg-light small-box media text-center">
-                <div>
-                    <div class="inner p-2">
-                        @if ($citiesManagers == null)
-                        <figure class="mt-5">
-                            <i class="fas fa-user-tie" style="font-size: 100px !important"></i>
-                            <h3>This city have no city manager <sup style="font-size: 20px"></sup></h3>
-                        </figure>
-                        @else
-                        <figure class="mt-3">
-                            <img alt="Avatar" src="{{ $citiesManagers->profile_image }}"
-                                style=" vertical-align: middle;width: 150px; height: 150px;border-radius: 50%;">
-                        </figure>
-                        <h3>ID = {{ $citiesManagers->id }} <sup style="font-size: 20px"></sup></h3>
-                        <h3>{{ $citiesManagers->name }} <sup style="font-size: 20px"></sup></h3>
-                        <h3>{{ $citiesManagers->email }} <sup style="font-size: 10px"></sup></h3>
-                        @endif
-                    </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h4>Show City</h4>
                 </div>
             </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            @if ($citiesManagers != null)
+                            <th class="project-state text-center">ID</th>
+                            <th class="project-state text-center">City Name</th>
+                            <th class="project-state text-center">Manager Name</th>
+                            <th class="project-state text-center">Manager Email</th>
+                            @endif
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            @if ($citiesManagers == null)
+                            <figure class="mt-5">
+                                <i class="fas fa-user-tie" style="font-size: 100px !important"></i>
+                                <h3>This city have no city manager <sup style="font-size: 20px"></sup></h3>
+                            </figure>
+                            @else
+
+                            <td class="project-state text-center">{{$cityData->id}}</td>
+                            <td class="project-state text-center">{{$cityData->name}}</td>
+                            <td class="project-state text-center">{{$citiesManagers->name}} </td>
+                            <td class="project-state text-center">{{$citiesManagers->email}} </td>
+                            @endif
+                        </tr>
+                    </tbody>
+                    <tbody>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-    </div>
+        <!-- /.card -->
+
+    </section>
 </div>
-</div>
+<!-- /.content-wrapper -->
 @endsection

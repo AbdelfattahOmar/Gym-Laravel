@@ -13,10 +13,8 @@ class TrainingPackagesController extends Controller
 {
     public function index()
     {
-        $packages = TrainingPackage::all();
-        if (count($packages) <= 0) { //for empty statement
-            return view('empty');
-        }
+        $packages = TrainingPackage::paginate(10);
+
         return view('trainingPackages.listPackages', ['packages' => $packages]);
     }
 
@@ -28,11 +26,9 @@ class TrainingPackagesController extends Controller
 
     public function edit($id)
     {
-        $packages = TrainingPackage::all();
-
         $package = TrainingPackage::find($id);
 
-        return view('trainingPackages.editPackage', ['package' => $package, 'packages' => $packages]);
+        return view('trainingPackages.editPackage', ['package' => $package]);
     }
 
     public function update(Request $request, $id)
@@ -56,20 +52,14 @@ class TrainingPackagesController extends Controller
 
     public function create()
     {
-        $packages = TrainingPackage::all();
-
-
-        return view('trainingPackages.createPackage', [
-            'packages' => $packages,
-
-        ]);
+        return view('trainingPackages.createPackage');
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => ['required'],
-            'price' => ['required', 'numeric', 'min:10', 'max:4000'],
+            'price' => ['required', 'numeric', 'min:10', 'max:90'],
             'sessions_number' => ['required', 'numeric', 'min:1', 'max:60'],
         ]);
 

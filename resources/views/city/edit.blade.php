@@ -51,14 +51,7 @@
                                 <label for="manager_id">City Manger</label>
                                 <select required class=" form-control @error('manager_id') is-invalid @enderror"
                                     name="manager_id" id="manager_id">
-                                    @if ($cityData->manager != null)
-                                    <option value="{{ $cityData->manager->id }}">
-                                        {{ $cityData->manager->name }}
-                                    </option>
-                                    <option value='optional'>Remove City Manager</option>
-                                    @else
-                                    <option value='optional' hidden>optional</option>
-                                    @endif
+
                                     <optgroup label="Available City Managers">
                                         @foreach ($cityManagers as $manager)
                                         <option value={{ $manager->id }}>{{ $manager->name }}</option>
