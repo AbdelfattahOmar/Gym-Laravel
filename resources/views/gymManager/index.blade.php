@@ -26,7 +26,7 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Gym Managers</h3>
-                
+
             </div>
             <div class="card-body p-0 ">
                 <table class="table table-striped data-table" id="proj">
@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -56,7 +56,6 @@
 
 @section('scripts')
 <script type="text/javascript">
-    
 $(function() {
 
     var table = $('.data-table').DataTable({
@@ -78,8 +77,9 @@ $(function() {
             {
                 data: 'profile_image',
                 name: 'profile_image',
-                render: function( data, type, full, meta ) {
-                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data ) + "\" width=\"50\"/>";
+                render: function(data, type, full, meta) {
+                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data) +
+                        "\" width=\"50\"/>";
                 }
             },
             {
@@ -95,21 +95,5 @@ $(function() {
         ]
     });
 });
-
-function banUser(id) {
-            if (confirm("Do you want to ban this user?")) {
-                $.ajax({
-                    url: '/banUser/' + id,
-                    type: 'get',
-                    data: {
-                        _token: $("input[name=_token]").val()
-                    },
-                    success: function(response) {
-                        $("#did" + id).remove();
-                    }
-                });
-            }
-        }
 </script>
 @endsection
-

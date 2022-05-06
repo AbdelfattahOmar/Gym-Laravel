@@ -233,13 +233,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{ route('PaymentPackage.stripe') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Buy a package.</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{ route('PaymentPackage.purchase_history') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Purchases history.</p>
                             </a>

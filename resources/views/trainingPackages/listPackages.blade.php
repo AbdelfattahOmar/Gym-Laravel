@@ -66,7 +66,7 @@
                                         <a class="btn btn-warning btn-sm text-white"
                                             href="{{ route('trainingPackeges.editPackege', $package['id']) }}">
                                             <i class="fas fa-pencil-alt"></i></a>
-                                        <a href="#" class="btn btn-info btn-sm">Buy
+                                        <a href="{{ route('PaymentPackage.stripe') }}" class="btn btn-info btn-sm">Buy
                                         </a>
                                         @role('admin')
                                             <a href="javascript:void(0)" onclick="deletePackage({{ $package->id }});"
