@@ -1,4 +1,4 @@
-@extends('layouts.user-layout')
+@extends('layouts.app')
 @section('content')
     <div class="content-wrapper pb-4">
         <div class="container-fluid pt-5">
