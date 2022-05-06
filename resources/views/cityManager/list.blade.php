@@ -79,18 +79,8 @@
 
     </section>
 </div>
-<<<<<<< HEAD
-<!-- <div class="text-center">
-    {{ $users->links() }}
-</div>
-<style>
-svg {
-    width: 35px;
-}
-</style> -->
-=======
 
-<<<<<<< HEAD
+
 <div class="text-center">
     {{ $users->links() }}
 </div>
