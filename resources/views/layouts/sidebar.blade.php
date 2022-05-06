@@ -85,13 +85,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="/cityManager/list" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List cities managers.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="/cityManager/create" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add new city manager.</p>
                              </a>
@@ -111,13 +111,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="/gym/list" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List gyms.</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="/gym/create" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add new gym.</p>
                              </a>
