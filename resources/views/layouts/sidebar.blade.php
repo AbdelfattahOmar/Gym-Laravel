@@ -274,11 +274,9 @@
                 <!-- End of attendance table -->
                 <!-- Banned Users -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('user.listBanned') }}" class="nav-link">
                         <i class="nav-icon fa fa-user-lock"></i>
-                        <p>
-                            Banned users.
-                        </p>
+                        <p> Banned Users </p>
                     </a>
                 </li>
                 <!-- End of banned users. -->
