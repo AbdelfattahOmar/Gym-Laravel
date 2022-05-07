@@ -12,6 +12,8 @@ use App\Http\Controllers\CityManagerController;
 use App\Http\Controllers\TrainingPackagesController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\RevenueController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -126,7 +128,8 @@ Route::delete('/trainingPackages/{package}  ', [TrainingPackagesController::clas
 Route::get('/trainingPackages/{package}/edit', [TrainingPackagesController::class, 'edit'])->name('trainingPackeges.editPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::put('/trainingPackages/{package}', [TrainingPackagesController::class, 'update'])->name('trainingPackeges.update_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 
-
+// revenue route
+Route::get('/revenue',[RevenueController::class,'index'])->name('revenue')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 //buy package
 
 Route::get('/PaymentPackage/stripe', [StripeController::class, 'stripe'])->name('PaymentPackage.stripe')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager|coach');

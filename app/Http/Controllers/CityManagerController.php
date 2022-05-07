@@ -89,7 +89,7 @@ class CityManagerController extends Controller
             'name' => 'required|max:20',
             'password' => 'required |min:6',
             'email' => 'required|string|unique:users,email,' . $user->id,
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png',
             'national_id' => 'digits_between:10,17|numeric|unique:users,national_id,' . $user->id,
         ]);
 

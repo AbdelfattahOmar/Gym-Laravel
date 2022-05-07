@@ -18,7 +18,7 @@ class AttendanceFactory extends Factory
     {
         return [
             
-                'attendance_at' => '2022-03-30 09:30:00',
+                'attendance_at' => '2022-05-06 07:00:00',
                 'user_id' => rand(123, 222),
                 'training_session_id' => rand(1, 10),
             

@@ -62,8 +62,8 @@
                                     class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button onClick="if(!confirm('Is the form filled out correctly?')){return false;}"
-                                        type="submit" class="btn btn-danger mr-2">Delete</button>
+                                    <button onClick="if(!confirm('Are you sure?')){return false;}"
+                                        type="submit" class="btn fw-bold btn-danger mr-2">Delete</button>
                                 </form>
 
                                 <a href="javascript:void(0)" onclick="banUser({{ $user->id }})" class="btn btn-dark "><i
