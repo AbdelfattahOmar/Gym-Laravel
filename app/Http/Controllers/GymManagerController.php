@@ -12,7 +12,9 @@ class GymManagerController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::role('gymManager')->get();
+            $data = User::role('gymManager')->withoutBanned()->get();
+
+            
             
             
             return Datatables::of($data)
@@ -26,7 +28,8 @@ class GymManagerController extends Controller
                         <input type="hidden" name="_method" value="delete" />
                         <button onClick="if(!confirm("Are you sure?")){return false;}" type="submit" class="btn btn-danger fw-bold mr-2">Delete</button>
                         </form>';
-                        $btn .= ' <a href="javascript:void(0)" onclick="banUser({{ '.$row->id.' }})" class="btn btn-dark "><i
+
+                        $btn .= '<a href="/gymManager/index" onclick="banUser('.$row->id.')" class="btn btn-dark "><i
                         class="fa fa-user-lock"></i></a>';
                             return $btn;
                     })
@@ -34,7 +37,7 @@ class GymManagerController extends Controller
                     ->make(true);
         }
         
-        return view('gymManager.index');
+        return view('gymManager.index', []);
     }
 
     public function unAuth()

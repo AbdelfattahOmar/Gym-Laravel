@@ -116,4 +116,5 @@ svg {
             );
         }
     }
-    </script>@endsection
+    </script>
+    @endsection
