@@ -28,8 +28,8 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- start of simple charts -->
-                <div class="col-lg-3 col-6">
-                    <img src="" alt="">
+                <div >
+                <img src="{{ asset('dist/img/bg.jpg') }}" alt="Logo"  style="display:block; margin:auto; height:550px; width:1000px; opacity: .8">
                 </div>
             </div>
             <!-- /.col-md-6 -->

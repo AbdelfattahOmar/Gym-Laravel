@@ -22,18 +22,15 @@
                 <table class="table table-striped projects">
                     <thead>
                         <tr>
-                            @if ($citiesManagers != null)
                             <th class="project-state text-center">ID</th>
                             <th class="project-state text-center">City Name</th>
                             <th class="project-state text-center">Manager Name</th>
                             <th class="project-state text-center">Manager Email</th>
-                            @endif
                         </tr>
                     </thead>
                     <tbody>
 
                         <tr>
-
                             <td class="project-state text-center">{{$cityData->id}}</td>
                             <td class="project-state text-center">{{$cityData->name}}</td>
                             @if ($citiesManagers == null)
