@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class WelcomeController extends Controller
+class RevenueController extends Controller
 {
     private $userID, $userRole, $cities = 0, $citiesManagers = 0, $gyms = 0, $gymsManagers = 0,
         $coaches = 0, $users = 0, $totalRevenue = 0, $revenueInDollars = 0;
@@ -37,8 +37,7 @@ class WelcomeController extends Controller
                 break;
             case 'cityManager':
                 //get all user in cityManager city
-                $userOfCity = City::find($this->userData['city_id'])->users;
-
+                $userOfCity = City::find($this->userData['city_id'])-> users;
                 //get totalRevenue in cityManager city
                 foreach ($userOfCity as $usersID) {
                     $this->totalRevenue += (Revenue::where('user_id', '=', $usersID['id'])->sum('price')) / 100;
@@ -83,13 +82,13 @@ class WelcomeController extends Controller
                 if (count($userOfGym->trainingSessions) <= 0) { //for empty statement
                     return view('empty');
                 }
-                return view("welcome", [
+                return view("revenue.index", [
                     'trainingSessions' => $userOfGym->trainingSessions,
                 ]);
                 break;
         }
 
-        return view("welcome", [
+        return view("revenue.index", [
             'cities' => $this->cities,
             'citiesManagers' => $this->citiesManagers,
             'gyms' => $this->gyms,

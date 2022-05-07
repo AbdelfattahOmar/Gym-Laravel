@@ -31,18 +31,24 @@
                         <thead>
                             <tr>
                                 <th class="project-state">id</th>
-                                <th class="project-state">Gyms Name</th>
-                                <th class="project-state">Gym City</th>
+                                <th class="project-state">Gym Name</th>
+                                @role('admin')
+                                <th class="project-state">Gym City</th> 
+                                <th class="project-state">Gym city manager</th>
+                                @endrole
+                                
                                 <th class="project-state">Created at</th>
-                                <th class="project-state">Gyms Cover Image</th>
+                                <th class="project-state">Gym Image</th>
                                 <th class="project-state text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($gyms as $gym)
+                           
                                 <tr id="gid{{ $gym->id }}">
                                     <td class="project-state">{{ $gym->id }}</td>
                                     <td class="project-state">{{ $gym->name }}</td>
+                                    @role('admin')
                                     <td class="project-state">
 
                                         @if ($gym->city == null)
@@ -51,6 +57,11 @@
                                             <span class="project-state">{{ $gym->city->name }}</span>
                                         @endif
                                     </td>
+                                  
+                                    
+                                    <td class="project-state">{{ $gym->city->manager ? $gym->city->manager->name : 'city has no manager' }}</td>
+                                    @endrole
+                                    
                                     <td class="project-state">{{ $gym->created_at->format('d - M - Y') }}</td>
                                     <td class="project-state">
                                         <img alt="Avatar" style="width:50px" src="{{ asset($gym->cover_image) }}">

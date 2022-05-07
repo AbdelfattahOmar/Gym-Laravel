@@ -12,6 +12,8 @@ use App\Http\Controllers\CityManagerController;
 use App\Http\Controllers\TrainingPackagesController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\RevenueController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,13 +80,13 @@ Route::controller(CityManagerController::class)->group(function () {
 });
 
 // gym manager routes
-Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('gymManager.index')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/gymManager/create', [GymManagerController::class, 'create'])->name('gymManager.create')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::post('/gymManager/store', [GymManagerController::class, 'store'])->name('gymManager.store')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/gymManager/show/{id}', [GymManagerController::class, 'show'])->name('gymManager.show')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::get('/gymManager/{id}/edit', [GymManagerController::class, 'edit'])->name('gymManager.edit')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
-Route::put('/gymManager/{id}', [GymManagerController::class, 'update'])->name('gymManager.update')->middleware('role:admin|cityManager|gymManager');
-Route::delete('/gymManager/{id}', [GymManagerController::class, 'delete'])->name('gymManager.delete')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
+Route::get('/gymManager/index', [GymManagerController::class, 'index'])->name('gymManager.index')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::get('/gymManager/create', [GymManagerController::class, 'create'])->name('gymManager.create')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::post('/gymManager/store', [GymManagerController::class, 'store'])->name('gymManager.store')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::get('/gymManager/show/{id}', [GymManagerController::class, 'show'])->name('gymManager.show')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::get('/gymManager/{id}/edit', [GymManagerController::class, 'edit'])->name('gymManager.edit')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::put('/gymManager/{id}', [GymManagerController::class, 'update'])->name('gymManager.update')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
+Route::delete('/gymManager/{id}', [GymManagerController::class, 'delete'])->name('gymManager.delete')->middleware('logs-out-banned-user')->middleware('auth')->middleware('role:admin|cityManager|gymManager');
 
 
 ///   Training session routes 
@@ -126,7 +128,8 @@ Route::delete('/trainingPackages/{package}  ', [TrainingPackagesController::clas
 Route::get('/trainingPackages/{package}/edit', [TrainingPackagesController::class, 'edit'])->name('trainingPackeges.editPackege')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 Route::put('/trainingPackages/{package}', [TrainingPackagesController::class, 'update'])->name('trainingPackeges.update_package')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager');
 
-
+// revenue route
+Route::get('/revenue',[RevenueController::class,'index'])->name('revenue')->middleware('auth')->middleware('role:admin|cityManager|gymManager');;
 //buy package
 
 Route::get('/PaymentPackage/stripe', [StripeController::class, 'stripe'])->name('PaymentPackage.stripe')->middleware('auth')->middleware('logs-out-banned-user')->middleware('role:admin|cityManager|gymManager|coach');

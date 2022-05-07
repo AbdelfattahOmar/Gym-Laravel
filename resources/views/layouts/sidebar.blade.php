@@ -271,6 +271,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('revenue') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            revenue card.
+                        </p>
+                    </a>
+                </li>
                 <!-- End of attendance table -->
                 <!-- Banned Users -->
                 <li class="nav-item">
