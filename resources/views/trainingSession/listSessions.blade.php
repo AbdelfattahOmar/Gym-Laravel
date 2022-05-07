@@ -24,14 +24,6 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Projects</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
             </div>
             <div class="card-body p-0">
                 <table class="table table-striped projects" id="proj">
@@ -56,12 +48,12 @@
                             <td>{{ $trainingSession->finishes_at }}</td>
 
                             <td class="project-actions text-center">
-                                <a class="btn btn-success btn-sm"
+                                <a class="btn btn-success fw-bold"
                                     href="{{ route('trainingSession.show_training_session', $trainingSession['id']) }}">
 
                                     View</i>
                                 </a>
-                                <a class="btn btn-info btn-sm text-white"
+                                <a class="btn btn-info fw-bold text-white"
                                     href="{{ route('trainingSession.edit_training_session', $trainingSession['id']) }}">
                                     Edit</a>
 
@@ -70,8 +62,8 @@
                                     method="post" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button href="" onclick="return confirm('Are you sure, you want Delete?')"
-                                        class="btn btn-danger btn-sm ">Delete</i></button>
+                                    <button onclick="return confirm('Are you sure, you want Delete?')"
+                                        class="btn btn-danger fw-bold">Delete</i></button>
 
 
                                 </form>

@@ -33,6 +33,8 @@
                             <th class="project-state">ID</th>
                             <th class="project-state">Name</th>
                             <th class="project-state">Email</th>
+                            <th class="project-state ">Profile Image</th>
+                            <th class="project-state ">National ID</th>
 
                         </tr>
                     </thead>
@@ -41,6 +43,10 @@
                             <td class="project-state">{{$user->id}}</td>
                             <td class="project-state">{{$user->name}}</td>
                             <td class="project-state">{{$user->email}}</td>
+                            <td class="project-state">
+                            <img alt="Avatar" class="table-avatar" style="width:50px" src="{{ asset($user->profile_image) }}"></td>
+                                </td>
+                            <td class="project-state">{{$user->national_id}}</td>
 
 
                         </tr>
