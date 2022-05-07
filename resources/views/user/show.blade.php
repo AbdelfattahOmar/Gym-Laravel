@@ -44,7 +44,12 @@
                             <td class="project-state">{{$user->name}}</td>
                             <td class="project-state">{{$user->email}}</td>
                             <td class="project-state">
-                            <img alt="Avatar" class="table-avatar" style="width:50px" src="{{ asset($user->profile_image) }}"></td>
+                            @if ($user->profile_image == null)
+                            <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
+                            @else
+                            <img alt="Avatar" class="table-avatar" style="width:50px" src="{{ asset($user->profile_image) }}">
+                            @endif
+                           </td>
                                 </td>
                             <td class="project-state">{{$user->national_id}}</td>
 

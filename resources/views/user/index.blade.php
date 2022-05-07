@@ -35,7 +35,6 @@
                             <th class="project-state"> ID </th>
                             <th class="project-state"> Name</th>
                             <th class="project-state"> Email</th>
-                            <th class="project-state ">Profile Image</th>
                             <th class="project-state ">National ID</th>
                             <th class="project-state"> Action</th>
                         </tr>
@@ -74,14 +73,7 @@ $(function() {
                 data: 'email',
                 name: 'email'
             },
-            {
-                data: 'profile_image',
-                name: 'profile_image',
-                render: function(data, type, full, meta) {
-                    return "<img src=\"" + (data[0] == 'h' ? data : "/" + data) +
-                        "\" width=\"50\"/>";
-                }
-            },
+            
             {
                 data: 'national_id',
                 name: 'national_id'
