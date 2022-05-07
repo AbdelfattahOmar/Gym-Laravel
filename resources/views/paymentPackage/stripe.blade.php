@@ -54,9 +54,9 @@
   
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group card required'>
-                                <label class='control-label'>Card Number</label> <input
-                                    autocomplete='off' class='form-control card-num' size='20'
-                                    type='text'>
+                                <label class='control-label'>Card Number</label> 
+                                <input autocomplete='off' class='form-control card-num' size='20'
+                                    type='text' placeholder="4242 4242 4242 4242">
                             </div>
                         </div>
                         <div class="form-group">
@@ -70,6 +70,7 @@
                         <div class="form-group">
                             <label for="package_id">Package</label>
                             <select id="package_id" class="form-control custom-select" name="package_id">
+                                
                                 @foreach(App\Models\TrainingPackage::get() as $package)
                                 <option value="{{ $package->id  }} | {{  $package->price }}">{{ $package->name }} -
                                     {{ $package->price / 100 }}$

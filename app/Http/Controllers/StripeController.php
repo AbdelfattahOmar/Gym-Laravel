@@ -20,7 +20,6 @@ class StripeController extends Controller
      */
     public function stripe()
     {
-
         return view('paymentPackage.stripe');
     }
 
